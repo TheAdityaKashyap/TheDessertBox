@@ -439,6 +439,41 @@
             background: var(--accent);
         }
 
+        /* Category Headers */
+        .menu-category {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin: 80px 0 30px;
+            position: relative;
+        }
+
+        .menu-category h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            display: inline-block;
+            background: var(--light);
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-category::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            z-index: 0;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+
         /* Testimonials */
         .testimonials {
             background: linear-gradient(to bottom, var(--light) 50%, var(--white) 50%);
@@ -982,15 +1017,14 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            
-            <a href="#" style="display: flex; align-items: center; text-decoration: none;">
-    <img src="FinalLogoTheDessertBox.png" 
-         style="height: 80px; width: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); margin-right: 10px;">
-    <div>
-        <div style="font-size: 2rem; font-weight: bold; color: black;">The Dessert Box</div>
-        <div style="font-size: 1rem; color: #555;">PREMIUM DESSERTS</div>
-    </div>
-</a>
+            <a href="#" class="logo">
+                <img src="FinalLogoTheDessertBox.png" 
+                     style="height: 80px; width: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); margin-right: 10px;">
+                <div>
+                    <div style="font-size: 2rem; font-weight: bold; color: white;">The Dessert Box</div>
+                    <div style="font-size: 1rem; color: #eee;">PREMIUM DESSERTS</div>
+                </div>
+            </a>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1061,58 +1095,238 @@
             </div>
             <div class="menu-content">
                 <div class="menu-grid">
+                    <!-- Chocolate Indulgences -->
+                    <div class="menu-category">
+                        <h3><span class="category-icon">🍫</span> Signature Chocolate Indulgences</h3>
+                    </div>
+                    
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Chocolate Truffle Cake">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chocolate Fudge Almond Brownies">
                         </div>
                         <div class="menu-item-content">
-                            <h3>Chocolate Truffle Cake</h3>
-                            <p>Rich layers of dark chocolate cake with silky ganache and chocolate truffle filling</p>
+                            <h3>Chocolate Fudge Almond Brownies</h3>
+                            <p>Rich, gooey chocolate brownies with almond crunch. Sides: chocolate chips or walnuts.</p>
                         </div>
                     </div>
+                    
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Berry Cheesecake">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chocolate Mocha Cake">
                         </div>
                         <div class="menu-item-content">
-                            <h3>Berry Cheesecake</h3>
-                            <p>Creamy vanilla cheesecake on a graham cracker crust topped with fresh seasonal berries</p>
+                            <h3>Chocolate Mocha Cake</h3>
+                            <p>Intense mocha layers topped with velvety chocolate ganache.</p>
                         </div>
                     </div>
+                    
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Caramel Macaron Box">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chocolate Coconut Cake">
                         </div>
                         <div class="menu-item-content">
-                            <h3>Caramel Macaron Box</h3>
-                            <p>Assortment of delicate French macarons with salted caramel filling in 12 pieces</p>
+                            <h3>Chocolate Coconut Cake</h3>
+                            <p>A tropical twist with decadent chocolate and coconut.</p>
                         </div>
                     </div>
+                    
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="https://images.unsplash.com/photo-1612203985729-70726954388c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tiramisu Delight">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Lava Cake">
                         </div>
                         <div class="menu-item-content">
-                            <h3>Tiramisu Delight</h3>
-                            <p>Classic Italian tiramisu with espresso-soaked ladyfingers and mascarpone cream</p>
+                            <h3>Lava Cake</h3>
+                            <p>Molten chocolate delight with a perfectly gooey center.</p>
                         </div>
                     </div>
+                    
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Red Velvet Cupcakes">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chocolate Mousse Cake">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Chocolate Mousse Cake</h3>
+                            <p>Light, airy mousse blended with dark chocolate perfection.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chocolate Tart">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Chocolate Tart</h3>
+                            <p>Crisp pastry shell filled with silky chocolate cream.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chickpea Chocolate Cookies">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Chickpea Chocolate Cookies</h3>
+                            <p>Guilt-free chocolaty bites made with protein-rich chickpeas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Ragi Chocolate Muffins">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Ragi Chocolate Muffins</h3>
+                            <p>Nutritious finger millet muffins with a deep chocolate flavor.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Cookies & Bites -->
+                    <div class="menu-category">
+                        <h3><span class="category-icon">🍪</span> Cookies & Bites</h3>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mix Seed Cookies">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mix Seed Cookies</h3>
+                            <p>Loaded with sunflower, flax, and chia for a crunchy boost.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Oats and Raisin Cookies">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Oats and Raisin Cookies</h3>
+                            <p>Classic chewy treats with hearty oats and plump raisins.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Almond Thumbprint Cookies">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Almond Thumbprint Cookies</h3>
+                            <p>Buttery almond cookies with fruit jam centers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Edible Cookie Dough Bites">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Edible Cookie Dough Bites</h3>
+                            <p>Safe-to-eat, egg-free dough balls for pure indulgence.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Nankhatai">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Nankhatai</h3>
+                            <p>Traditional Indian shortbread cookies with rich, aromatic flair.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Brookies">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Brookies</h3>
+                            <p>A hybrid of cookies and brownies—crisp, fudgy, and irresistible.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Cakes & Crumbles -->
+                    <div class="menu-category">
+                        <h3><span class="category-icon">🍰</span> Cakes & Crumbles</h3>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Whole Wheat Blueberry Crumble Cake">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Whole Wheat Blueberry Crumble Cake</h3>
+                            <p>Rustic whole wheat cake with a crunchy crumble and blueberry chia seed jam.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Coffee Jowar Cake">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Coffee Jowar Cake</h3>
+                            <p>A robust blend of coffee and sorghum flour for a wholesome kick.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Red Velvet Cupcakes">
                         </div>
                         <div class="menu-item-content">
                             <h3>Red Velvet Cupcakes</h3>
-                            <p>Six moist red velvet cupcakes with cream cheese frosting and edible gold dust</p>
+                            <p>Soft, vibrant, and topped with dreamy cream cheese frosting.</p>
                         </div>
                     </div>
+                    
+                    <!-- Cheesecakes & Extras -->
+                    <div class="menu-category">
+                        <h3><span class="category-icon">🍮</span> Cheesecakes & Extras</h3>
+                    </div>
+                    
                     <div class="menu-item">
                         <div class="menu-item-image">
-                            <img src="https://images.unsplash.com/photo-1519869325930-281384150729?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Seasonal Fruit Tart">
+                            <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Protein Bars and Energy Balls">
                         </div>
                         <div class="menu-item-content">
-                            <h3>Seasonal Fruit Tart</h3>
-                            <p>Buttery pastry crust filled with vanilla custard and topped with fresh seasonal fruits</p>
+                            <h3>Protein Bars and Energy Balls</h3>
+                            <p>Perfect snack-sized fuel with nuts, dates, and seeds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Healthy Twix Bars">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Healthy Twix Bars</h3>
+                            <p>Layers of cookie, caramel, and chocolate—just lighter!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Baked Cheesecake Cups">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Baked Cheesecake Cups</h3>
+                            <p>Mini cheesecake delights with creamy richness.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Festive Feature -->
+                    <div class="menu-category">
+                        <h3><span class="category-icon">🎁</span> Festive Feature</h3>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Surprise Laddo">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Surprise Laddo (Raksha Bandhan Special)</h3>
+                            <p>A joyful sweet treat bundled with love—perfect for gifting your sibling this festive season.</p>
                         </div>
                     </div>
                 </div>
@@ -1212,11 +1426,11 @@
                 <div class="footer-column">
                     <h3>Popular Desserts</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Chocolate Truffle Cake</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Berry Cheesecake</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Caramel Macaron Box</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tiramisu Delight</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Seasonal Fruit Tart</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Chocolate Fudge Almond Brownies</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Chocolate Mocha Cake</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Healthy Twix Bars</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Brookies</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Surprise Laddo</a></li>
                     </ul>
                 </div>
                 <div class="footer-column footer-subscribe">
