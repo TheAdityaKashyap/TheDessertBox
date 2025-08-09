@@ -713,7 +713,7 @@
             color: var(--white);
             padding: 50px; /* Increased padding */
             border-radius: 20px;
-            text-align: center;
+            text-align: center; /* This centers the overall block */
             margin-top: 60px; /* Increased margin-top */
             box-shadow: 0 15px 40px rgba(0,0,0,0.3); /* Enhanced shadow */
         }
@@ -727,10 +727,24 @@
             margin: 12px 0; /* Adjusted margin */
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center; /* Center horizontally for responsiveness */
             gap: 12px; /* Increased gap */
             opacity: 0.95;
+            text-align: left; /* Ensure text itself is left aligned within its flex container */
+            width: fit-content; /* Shrink width to content */
+            margin-left: auto; /* Push to center with auto margins */
+            margin-right: auto;
         }
+        /* For smaller screens, ensure it stays left if needed */
+        @media (max-width: 768px) {
+            .contact-info p {
+                justify-content: flex-start; /* Align left on smaller screens */
+                margin-left: 0; /* Remove auto-margin */
+                margin-right: 0;
+                width: 100%; /* Take full width */
+            }
+        }
+
 
         .contact-info a {
             color: var(--gold);
@@ -804,14 +818,14 @@
             background: var(--gold);
         }
 
-        /* Specific alignment for Contact Info footer section */
+        /* Footer contact section - align content left */
         .footer-section.contact-align {
-            text-align: center; /* Center the text content of this section */
+            text-align: left; /* Explicitly left-align the content */
         }
 
         .footer-section.contact-align h3::after {
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0; /* Keep the underline left-aligned */
+            transform: translateX(0);
         }
 
         .footer-section.contact-align ul {
@@ -823,7 +837,7 @@
             margin-bottom: 12px;
             display: flex; /* Use flexbox for list items */
             align-items: center; /* Center content vertically */
-            justify-content: center; /* Center content horizontally */
+            justify-content: flex-start; /* Align content to the start (left) */
             gap: 8px; /* Space between icon and text */
         }
 
@@ -1332,14 +1346,14 @@
             }
             .footer-section {
                 min-width: 100%; /* Stack footer columns on very small screens */
-                text-align: center;
+                text-align: left; /* Keep left alignment */
             }
             .footer-section h3::after {
-                left: 50%;
-                transform: translateX(-50%);
+                left: 0; /* Keep underline left-aligned */
+                transform: translateX(0);
             }
             .social-links {
-                justify-content: center;
+                justify-content: flex-start; /* Align social links left */
             }
         }
     </style>
@@ -2144,16 +2158,16 @@
 
 
         <div class="menu-contact" data-aos="zoom-in-up" data-aos-offset="100">
-    <div class="contact-info">
-        <p><i class="fas fa-map-marker-alt"></i> Chattu Terrace, Sasson Dock, Next To Colaba Market</p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+918369322085">+91 83693 22085</a></p>
-        <p><i class="fas fa-envelope"></i> <a href="mailto:thedessertbox25@gmail.com">thedessertbox25@gmail.com</a></p>
-        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918369322085" target="_blank">Message us on WhatsApp</a></p>
-    </div>
-    <a href="https://www.instagram.com/_the_dessert_box_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="instagram-link" target="_blank">
-        <i class="fab fa-instagram"></i> @the_dessert_box_
-    </a>
-</div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Chattu Terrace, Sasson Dock, Next To Colaba Market</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+918369322085">+91 83693 22085</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:thedessertbox25@gmail.com">thedessertbox25@gmail.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918369322085" target="_blank">Message us on WhatsApp</a></p>
+            </div>
+            <a href="https://www.instagram.com/_the_dessert_box_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="instagram-link" target="_blank">
+                <i class="fab fa-instagram"></i> @the_dessert_box_
+            </a>
+        </div>
     </main>
 
     <footer class="footer">
