@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Dessert Box | Premium Artisanal Desserts</title>
+    <title>The Dessert Box | Full Menu</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -15,16 +15,17 @@
         }
 
         :root {
-            --primary: #A86464;        /* Deep rose brown */
-            --secondary: #F8D7DA;      /* Soft pink */
-            --accent: #D4A5A5;         /* Muted pink */
-            --light: #FFF7F8;          /* Light pink background */
-            --dark: #5C3D2E;           /* Rich brown */
-            --text: #4A3F35;           /* Dark brown text */
+            --primary: #A86464;
+            --secondary: #F8D7DA;
+            --accent: #D4A5A5;
+            --light: #FFF7F8;
+            --dark: #5C3D2E;
+            --text: #4A3F35;
             --white: #FFFFFF;
+            --gold: #C19A6B;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            --gold: #C19A6B;           /* Warm gold */
+            --success: #5cb85c;
         }
 
         body {
@@ -32,7 +33,8 @@
             color: var(--text);
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            padding-top: 100px;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5 {
@@ -52,14 +54,18 @@
         /* Header Styles */
         header {
             background: linear-gradient(to right, var(--primary), #8B5A5A);
-            padding: 1.2rem 0;
+            padding: 0.8rem 0; /* Made header thinner */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth header scroll effect */
+            transition: var(--transition);
+        }
+
+        .scrolled-header {
+            background: rgba(92, 61, 46, 0.95);
+            padding: 0.6rem 0; /* Made scrolled header even thinner */
         }
 
         .header-container {
@@ -71,38 +77,81 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px; /* Reduced gap */
             color: var(--white);
             text-decoration: none;
             z-index: 1001;
         }
 
-        .logo-icon {
-            font-size: 2.8rem;
-            color: var(--gold);
-            filter: drop-shadow(0 0 5px rgba(193, 154, 107, 0.5));
+        .logo img {
+            height: 60px; /* Made logo image smaller */
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin-right: 5px; /* Reduced margin */
+            transition: var(--transition);
+        }
+
+        .scrolled-header .logo img {
+            height: 50px; /* Smaller logo when scrolled */
         }
 
         .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 1.8rem; /* Made logo text smaller */
+            font-weight: bold;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .scrolled-header .logo-text {
+            font-size: 1.6rem; /* Smaller logo text when scrolled */
         }
 
         .logo-tagline {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-top: 5px;
-            opacity: 0.9;
+            font-size: 0.9rem; /* Made tagline text smaller */
+            color: #eee;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.95rem;
+            box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(193, 154, 107, 0.4);
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 2.5rem;
+            align-items: center;
         }
 
         nav a {
@@ -135,209 +184,154 @@
             width: 100%;
         }
 
-        .mobile-menu-btn {
-            display: none; /* Hidden by default on desktop */
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 2rem;
+        /* Cart Icon */
+        .cart-icon {
+            position: relative;
             cursor: pointer;
-            z-index: 1001;
-            padding: 10px; /* Increase touch target size */
         }
 
-        .cta-button {
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
             background: var(--gold);
             color: var(--dark);
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.95rem;
-            box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
-        }
-
-        .cta-button:hover {
-            background: transparent;
-            border-color: var(--gold);
-            color: var(--gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(193, 154, 107, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            min-height: 700px; /* Adjusted min-height for mobile */
-            background: linear-gradient(rgba(92, 61, 46, 0.7), rgba(92, 61, 46, 0.7)), url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            margin-top: 0;
-            padding-top: 80px;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.5) 100%);
-            z-index: 0;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            line-height: 1.2;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.2s forwards;
-            opacity: 0;
-        }
-
-        .hero-buttons {
+            font-size: 0.7rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 2rem;
-            animation: fadeInUp 1s ease-out 0.4s forwards;
-            opacity: 0;
+            align-items: center;
+            font-weight: bold;
         }
 
-        .secondary-button {
-            background: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
+        /* Category Navigation */
+        .category-nav {
+            position: sticky;
+            top: 100px;
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 900;
+            margin-bottom: 30px;
+            border-radius: 10px;
         }
 
-        .hero-scroll {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
+        .scrolled-header ~ .category-nav {
+            top: 80px;
         }
 
-        .hero-scroll i {
-            font-size: 2.5rem;
-            color: var(--gold);
+        .category-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        /* Sections */
-        section {
-            padding: 120px 0; /* Default padding for desktop */
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 3.2rem;
-            display: inline-block;
-            padding-bottom: 20px;
-            position: relative;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 5px;
-            background: var(--accent);
-            border-radius: 3px;
-        }
-
-        .section-subtitle {
-            font-size: 1.4rem;
-            color: var(--accent);
-            margin-top: 15px;
-            font-style: italic;
-        }
-
-        /* About Section */
-        .about-content {
+        .category-nav li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+            background: var(--light);
             display: flex;
             align-items: center;
-            gap: 60px;
+            gap: 10px;
         }
 
-        .about-text {
-            flex: 1;
+        .category-nav li a:hover,
+        .category-nav li a.active {
+            background: var(--primary);
+            color: var(--white);
         }
 
-        .about-text h3 {
-            font-size: 2.3rem;
-            margin-bottom: 25px;
-            color: var(--accent);
+        .category-nav li a i {
+            font-size: 1.2rem;
         }
 
-        .about-image {
-            flex: 1;
+        /* Filter Section */
+        .filter-section {
+            background: var(--white);
+            padding: 20px;
             border-radius: 15px;
-            overflow: hidden;
+            margin-bottom: 30px;
             box-shadow: var(--shadow);
-            position: relative;
-            transform: rotate(-2deg);
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: var(--light);
+            border: none;
+            cursor: pointer;
             transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .about-image:hover {
-            transform: rotate(0deg) scale(1.02);
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
         }
 
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
+        /* Menu Page Styles */
+        .menu-hero {
+            text-align: center;
+            padding: 60px 0 40px;
+            background: linear-gradient(rgba(92, 61, 46, 0.8), rgba(92, 61, 46, 0.8)), url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: var(--white);
+            margin-bottom: 60px;
+            border-radius: 0 0 20px 20px;
         }
 
-        .about-image:hover img {
-            transform: scale(1.05);
+        .menu-hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
         }
 
-        /* Menu Section */
-        .menu {
-            background-color: var(--white);
+        .menu-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+        }
+
+        .menu-container {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            margin-bottom: 60px;
             position: relative;
             overflow: hidden;
+            animation: fadeIn 1s ease;
         }
 
-        .menu::before {
+        .menu-container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -349,112 +343,22 @@
             z-index: 0;
         }
 
-        .menu-content {
+        .menu-section {
             position: relative;
             z-index: 1;
         }
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 45px;
-        }
-
-        .menu-item {
-            background: var(--light);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            transform: translateY(50px);
-            opacity: 0;
-        }
-
-        .menu-item.animate {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-        }
-
-        .menu-item-image {
-            height: 280px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .menu-item-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7) 100%);
-            z-index: 1;
-        }
-
-        .menu-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .menu-item:hover .menu-item-image img {
-            transform: scale(1.1);
-        }
-
-        .menu-item-content {
-            padding: 30px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .menu-item h3 {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .menu-item p {
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .price {
-            font-weight: 700;
-            color: var(--accent);
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price::before {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--accent);
-        }
-
-        /* Category Headers */
         .menu-category {
-            grid-column: 1 / -1;
             text-align: center;
-            margin: 80px 0 30px;
+            margin: 50px 0 30px;
             position: relative;
         }
 
-        .menu-category h3 {
+        .menu-category h2 {
             font-size: 2.5rem;
             color: var(--accent);
             display: inline-block;
-            background: var(--light);
+            background: var(--white);
             padding: 0 20px;
             position: relative;
             z-index: 1;
@@ -477,544 +381,29 @@
             vertical-align: middle;
         }
 
-        /* Testimonials */
-        .testimonials {
-            background: linear-gradient(to bottom, var(--light) 50%, var(--white) 50%);
-        }
-
-        .testimonials-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial {
-            text-align: center;
-            padding: 50px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            margin: 20px;
-            position: relative;
-            transform: scale(0.95);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .testimonial.animate {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-size: 8rem;
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            opacity: 0.1;
-            line-height: 1;
-        }
-
-        .testimonial img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            border: 5px solid var(--light);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 25px;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial .name {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 1.3rem;
-            margin-top: 10px;
-        }
-
-        .stars {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-top: 15px;
-            letter-spacing: 3px;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(to right, var(--primary), var(--dark));
-            color: var(--white);
-            position: relative;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png');
-            opacity: 0.1;
-        }
-
-        .contact .section-title h2 {
-            color: var(--white);
-        }
-
-        .contact-content {
-            display: flex;
-            gap: 60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--gold);
-        }
-
-        .contact-details {
-            margin-bottom: 40px;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .contact-icon {
-            font-size: 1.8rem;
-            color: var(--gold);
-            min-width: 50px;
-            text-align: center;
-        }
-
-        .contact-text h4 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-            color: var(--white);
-        }
-
-        .contact-text p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: var(--white);
-            transition: var(--transition);
-            font-size: 1.4rem;
-        }
-
-        .social-links a:hover {
-            background: var(--gold);
-            color: var(--dark);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            flex: 1;
-            background: rgba(255,255,255,0.1);
-            padding: 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--gold);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 18px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.15);
-            color: var(--white);
-            font-size: 1.1rem;
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-
-        .form-control:focus {
-            outline: none;
-            background: rgba(255,255,255,0.2);
-            border: 1px solid var(--gold);
-            box-shadow: 0 0 10px rgba(193, 154, 107, 0.3);
-        }
-
-        .form-control::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        textarea.form-control {
-            height: 180px;
-            resize: none;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--light);
-            padding: 80px 0 40px;
-            position: relative;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 50px;
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
             margin-bottom: 50px;
         }
 
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-column h3 {
-            color: var(--gold);
-            margin-bottom: 25px;
-            font-size: 1.6rem;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 18px;
-        }
-
-        .footer-links a {
-            color: var(--light);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-        }
-
-        .footer-links a i {
-            color: var(--gold);
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-            padding-left: 5px;
-        }
-
-        .footer-links a:hover i {
-            transform: translateX(5px);
-        }
-
-        .footer-about p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .footer-subscribe p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .subscribe-form {
-            display: flex;
-            gap: 10px;
-        }
-
-        .subscribe-form input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.1);
-            color: var(--white);
-            font-size: 1rem;
-        }
-
-        .subscribe-form button {
-            background: var(--gold);
-            color: var(--dark);
-            border: none;
-            border-radius: 8px;
-            padding: 0 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .subscribe-form button:hover {
-            background: var(--light);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 1.1rem;
-            opacity: 0.7;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-20px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 4rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-content {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                gap: 1.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 80px 0; /* Reduced padding for sections on tablets/mobiles */
-            }
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav ul {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                flex-direction: column;
-                background: var(--primary);
-                width: 100%;
-                height: 100vh;
-                padding: 100px 40px 40px;
-                transition: var(--transition);
-                gap: 30px;
-                justify-content: center;
-                align-items: center;
-                z-index: 999;
-            }
-            
-            nav ul.active {
-                left: 0;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.3rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.6rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .menu-grid {
-                grid-template-columns: 1fr; /* Single column for menu items */
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 40px;
-            }
-            
-            .subscribe-form {
-                flex-direction: column;
-            }
-
-            .about-image {
-                transform: rotate(0deg); /* Remove slight rotation on mobile for better fit */
-            }
-            .about-image:hover {
-                transform: scale(1.02);
-            }
-        }
-
-        @media (max-width: 576px) {
-            section {
-                padding: 60px 0; /* Further reduced padding for small mobile screens */
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-            
-            .logo-text {
-                font-size: 1.8rem;
-            }
-
-            .logo-tagline {
-                font-size: 0.8rem;
-            }
-
-            .menu-item-content {
-                padding: 20px; /* Slightly reduce padding inside menu items */
-            }
-
-            .menu-category h3 {
-                font-size: 2rem;
-                padding: 0 10px;
-            }
-            .category-icon {
-                font-size: 1.5rem;
-            }
-            .contact-form {
-                padding: 30px; /* Reduced contact form padding */
-            }
-        }
-        
-        /* Decorative elements - adjust for mobile if they cause issues */
-        .pink-flourish, .brown-flourish, .floating-element {
-            /* On mobile, these can be less prominent or hidden if they clutter */
-            display: block; /* Ensure they are not hidden by default */
-        }
-
-        @media (max-width: 768px) {
-            .pink-flourish, .brown-flourish {
-                width: 100px; /* Reduce size */
-                opacity: 0.1; /* Make them more subtle */
-            }
-            .floating-element {
-                width: 20px; /* Reduce size */
-                height: 20px;
-                opacity: 0.2; /* Make them more subtle */
-            }
-            /* Adjust positions or hide completely if necessary */
-            .top-left { top: 2%; left: 2%; }
-            .bottom-right { bottom: 2%; right: 2%; }
-            .top-right { top: 5%; right: 5%; }
-            .bottom-left { bottom: 5%; left: 5%; }
-        }
-
-        @media (max-width: 576px) {
-            /* Hide decorative elements on very small screens to reduce clutter */
-            .pink-flourish, .brown-flourish, .floating-element {
-                display: none;
-            }
-        }
-        
-        /* Enhanced Micro-Animations & Hover Effects */
         .menu-item {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            gap: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .menu-item::before {
@@ -1025,35 +414,603 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-            z-index: 1;
+            transition: left 0.7s;
         }
 
         .menu-item:hover::before {
             left: 100%;
         }
 
-        .menu-item:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        .item-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .menu-item-image {
-            position: relative;
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover .item-image img {
+            transform: scale(1.1);
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            color: #666;
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        /* .item-price { This rule is now effectively removed as the element is gone } */
+
+        .dietary-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .dietary-tag {
+            background: var(--secondary);
+            color: var(--dark);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-to-cart {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .favorite-btn {
+            background: transparent;
+            border: none;
+            color: #ccc;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .favorite-btn.active {
+            color: #ff6b6b;
+        }
+
+        .menu-contact {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.3rem;
+            margin-top: 15px;
+            transition: var(--transition);
+        }
+
+        .instagram-link:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: flex-end;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-content {
+            width: 100%;
+            max-width: 450px;
+            background: var(--white);
+            height: 100%;
+            padding: 30px;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: var(--transition);
+        }
+
+        .cart-modal.active .cart-content {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
             overflow: hidden;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* .cart-item-price { This rule is now effectively removed as the element is gone } */
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* .cart-total { This rule is now effectively removed as the element is gone } */
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .checkout-btn:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 3000;
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .menu-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+
+            /* Adjust header for thinner look on tablets */
+            header {
+                padding: 0.7rem 0;
+            }
+            .scrolled-header {
+                padding: 0.5rem 0;
+            }
+            .logo img {
+                height: 55px;
+            }
+            .scrolled-header .logo img {
+                height: 45px;
+            }
+            .logo-text {
+                font-size: 1.6rem;
+            }
+            .scrolled-header .logo-text {
+                font-size: 1.4rem;
+            }
+            .logo-tagline {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--primary);
+                padding-top: 100px;
+                transition: left 0.5s ease-in-out;
+                z-index: 999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            nav.active {
+                left: 0;
+            }
+            
+            .menu-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .menu-category h2 {
+                font-size: 2.2rem;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .cart-content {
+                max-width: 100%;
+            }
+            /* Further adjust header for thinner look on mobile */
+            header {
+                padding: 0.6rem 0;
+            }
+            .scrolled-header {
+                padding: 0.4rem 0;
+            }
+            .logo img {
+                height: 50px;
+            }
+            .scrolled-header .logo img {
+                height: 40px;
+            }
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            .scrolled-header .logo-text {
+                font-size: 1.2rem;
+            }
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .menu-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .menu-container {
+                padding: 25px 20px;
+            }
+            
+            .menu-category h2 {
+                font-size: 1.8rem;
+            }
+            
+            .item-name {
+                font-size: 1.3rem;
+            }
+
+            .menu-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .item-image {
+                width: 100%;
+                height: 200px;
+                margin: 0 auto;
+            }
+            
+            .item-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .add-to-cart {
+                width: 100%;
+                justify-content: center;
+            }
+            /* Smallest screen header adjustments */
+            header {
+                padding: 0.5rem 0;
+            }
+            .scrolled-header {
+                padding: 0.3rem 0;
+            }
+            .logo img {
+                height: 45px;
+            }
+            .scrolled-header .logo img {
+                height: 35px;
+            }
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            .scrolled-header .logo-text {
+                font-size: 1rem;
+            }
+            .logo-tagline {
+                display: none; /* Hide tagline on very small screens to save space */
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="FinalLogoTheDessertBox.png" 
-                     style="height: 80px; width: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); margin-right: 10px;">
+            <a href="index.html" class="logo">
+                <img src="FinalLogoTheDessertBox.png" alt="The Dessert Box Logo">
                 <div>
-                    <div style="font-size: 2rem; font-weight: bold; color: white;">The Dessert Box</div>
-                    <div style="font-size: 1rem; color: #eee;">PREMIUM DESSERTS</div>
+                    <div class="logo-text">The Dessert Box</div>
+                    <div class="logo-tagline">PREMIUM DESSERTS</div>
                 </div>
             </a>
             <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-controls="menu" aria-expanded="false">
@@ -1062,440 +1019,856 @@
             <nav>
                 <ul id="menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#" class="cta-button">Order Now</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li>
+                        <a href="#" class="cart-icon" id="cart-icon" aria-label="View shopping cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" aria-live="polite">0</span>
+                        </a>
+                    </li>
+                    <li><a href="index.html#contact" class="cta-button">Order Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <!-- Decorative elements -->
-        <div class="floating-element" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
-        <div class="floating-element" style="top: 40%; right: 20%; animation-delay: 1s; width: 20px; height: 20px;"></div>
-        <div class="floating-element" style="bottom: 30%; left: 25%; animation-delay: 2s; width: 25px; height: 25px;"></div>
-        
-        <div class="hero-content">
-            <h1>Artisanal Desserts Crafted to Perfection</h1>
-            <p>Experience the exquisite taste of our handcrafted desserts made with premium ingredients and traditional techniques</p>
-            <div class="hero-buttons">
-                <a href="menu.html" class="cta-button">Explore Our Menu</a>
-                <a href="#contact" class="cta-button secondary-button">Book a Tasting</a>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
+    <div class="category-nav">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Story</h2>
-                <div class="section-subtitle">From Passion to Plate</div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>A Legacy of Flavor</h3>
-                    <p>At just 22, I'm an economics graduate with 4 years of retail management experience — but my true passion lies in reimagining desserts. I believe indulgence shouldn't come at the cost of health.</p>
-                    <p>That's why I handcraft each dessert using only the finest natural ingredients — no preservatives, no chemicals, and absolutely no guilt.</p>
-                    <p>Every recipe is made with love, using millet flour, whole wheat flour, and natural sweeteners like honey, dates, and jaggery.</p>
-                    <p>You won't find any refined sugar, refined flour, eggs, or palm oil here — just clean, wholesome treats that nourish your body and satisfy your soul.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artisanal desserts">
-                </div>
-            </div>
+            <ul>
+                <li><a href="#chocolate" class="active"><i class="fas fa-cookie-bite"></i> Chocolate</a></li>
+                <li><a href="#cookies"><i class="fas fa-cookie"></i> Cookies</a></li>
+                <li><a href="#bars"><i class="fas fa-candy-cane"></i> Bars</a></li>
+            </ul>
         </div>
-        
-        <!-- Decorative flourishes -->
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4a5a5' d='M20,20 Q40,5 60,20 T100,20 Q80,35 60,20 T20,20'/%3E%3C/svg%3E" class="pink-flourish top-left">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%235C3D2E' d='M80,80 Q60,95 40,80 T0,80 Q20,65 40,80 T80,80'/%3E%3C/svg%3E" class="brown-flourish bottom-right">
-    </section>
+    </div>
 
-    <!-- Menu Section -->
-<section id="menu" class="menu">
-    <div class="container">
-        <div class="section-title">
-            <h2>Our Signature Desserts</h2>
-            <div class="section-subtitle">Handcrafted with Premium Ingredients</div>
-        </div>
-        <div class="menu-content">
-            <div class="menu-grid">
-                <!-- Chocolate Indulgences -->
-                <div class="menu-category">
-                    <h3><span class="category-icon">🍫</span> Signature Chocolate Indulgences</h3>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="WalnutBrownie.jpeg" alt="Chocolate Fudge Brownies Almond / Walnuts">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Chocolate Fudge Almond Brownies</h3>
-                        <p>Rich, gooey chocolate brownies with almond crunch. Sides: chocolate chips or walnuts.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="MochaDatesJowarCake.jpeg" alt="Chocolate Mocha Cake">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Chocolate Mocha Cake</h3>
-                        <p>Intense mocha layers topped with velvety chocolate ganache.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="ChocolateFudgeBites.jpeg" alt="Chocolate Coconut Cake">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Chocolate Coconut Cake</h3>
-                        <p>A tropical twist with decadent chocolate and coconut.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="LavaCake.png" alt="Lava Cake">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Lava Cake</h3>
-                        <p>Molten chocolate delight with a perfectly gooey center.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="MousseCake.png" alt="Chocolate Mousse Cake">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Chocolate Mousse Cake</h3>
-                        <p>Light, airy mousse blended with dark chocolate perfection.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="RagiChocolateTart.jpeg" alt="Chocolate Tart">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Raagi Chocolate Tart</h3>
-                        <p>Crisp pastry shell filled with silky chocolate cream.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="ChocolateProteinBar.png" alt="Chickpea Chocolate Cookies">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Chickpea Chocolate Cookies</h3>
-                        <p>Guilt-free chocolaty bites made with protein-rich chickpeas.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="RagiChocolateMuffins.jpeg" alt="Ragi Chocolate Muffins">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Ragi Chocolate Muffins</h3>
-                        <p>Nutritious finger millet muffins with a deep chocolate flavor.</p>
-                    </div>
-                </div>
-                
-                <!-- Cookies & Bites -->
-                <div class="menu-category">
-                    <h3><span class="category-icon">🍪</span> Cookies & Bites</h3>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="OatsAndRaisenCookies.jpeg" alt="Oats and Raisin Cookies">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Oats and Raisin Cookies</h3>
-                        <p>Classic chewy treats with hearty oats and plump raisins.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="AlmondThumbprintCookies.jpeg" alt="Almond Thumbprint Cookies">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Almond Thumbprint Cookies</h3>
-                        <p>Buttery almond cookies with fruit jam centers.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="Brookies.jpeg" alt="Brookies">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Brookies</h3>
-                        <p>A hybrid of cookies and brownies—crisp, fudgy, and irresistible.</p>
-                    </div>
-                </div>
-                
-                <!-- Cakes & Crumbles -->
-                <div class="menu-category">
-                    <h3><span class="category-icon">🍰</span> Cakes & Crumbles</h3>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="BlueberryCake.jpeg" alt="Whole Wheat Blueberry Crumble Cake">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Whole Wheat Blueberry Crumble Cake</h3>
-                        <p>Rustic whole wheat cake with a crunchy crumble and blueberry chia seed jam.</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="MochaDatesJowarCake.jpeg" alt="Coffee Jowar Cake">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Coffee Jowar Cake</h3>
-                        <p>A robust blend of coffee and sorghum flour for a wholesome kick.</p>
-                    </div>
-                </div>
-                
-                <!-- Cheesecakes & Extras -->
-                <div class="menu-category">
-                    <h3><span class="category-icon">🍮</span> Cheesecakes & Extras</h3>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="TwixBar.jpeg" alt="Healthy Twix Bars">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Healthy Twix Bars</h3>
-                        <p>Layers of cookie, caramel, and chocolate—just lighter!</p>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="CheeseCake.jpeg" alt="Baked Cheesecake Cups">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Baked Cheesecake Cups</h3>
-                        <p>Mini cheesecake delights with creamy richness.</p>
-                    </div>
-                </div>
-                
-                <!-- Festive Feature -->
-                <div class="menu-category">
-                    <h3><span class="category-icon">🎁</span> Festive Feature</h3>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="FinalLogoTheDessertBox.png" alt="Surprise Laddo">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Surprise Laddo (Raksha Bandhan Special)</h3>
-                        <p>A joyful sweet treat bundled with love—perfect for gifting your sibling this festive season.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Decorative flourishes -->
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4a5a5' d='M20,80 Q40,95 60,80 T100,80 Q80,65 60,80 T20,80'/%3E%3C/svg%3E" class="pink-flourish bottom-left">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%235C3D2E' d='M80,20 Q60,5 40,20 T0,20 Q20,35 40,20 T80,20'/%3E%3C/svg%3E" class="brown-flourish top-right">
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="menu-hero">
         <div class="container">
-            <div class="section-title">
-                <h2>Visit Us</h2>
-                <div style="color: white;" class="section-subtitle">We'd love to sweeten your day</div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Connect With Us</h3>
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Our Location</h4>
-                                <p>Colaba, Mumbai - 400005</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Opening Hours</h4>
-                                <p>Monday-Friday: 9am - 8pm</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Call Us</h4>
-                                <a style="color: white;" href="tel:+91836922085" class="contact-detail__phone">+91 83693 22085</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/_the_dessert_box_/"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" class="form-control" placeholder="Your Phone">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Send Message</button>
-                    </form>
-                </div>
-            </div>
+            <h1>Our Complete Dessert Menu</h1>
+            <p>Indulge in our premium selection of homemade desserts crafted with love and the finest ingredients</p>
+            <a href="#menu" class="cta-button">Explore Menu</a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <main class="container">
+        <div class="filter-section">
+            <div class="filter-header">
+                <h2>Filter Desserts</h2>
+                <button class="cta-button" id="reset-filters">Reset Filters</button>
+            </div>
+            <div class="filter-options">
+                <button class="filter-btn active"><i class="fas fa-star"></i> All Items</button>
+                <button class="filter-btn"><i class="fas fa-seedling"></i> Vegan</button>
+                <button class="filter-btn"><i class="fas fa-wheat-alt"></i> Gluten-Free</button>
+                <button class="filter-btn"><i class="fas fa-heart"></i> Low Sugar</button>
+                <button class="filter-btn"><i class="fas fa-bolt"></i> Popular</button>
+            </div>
+        </div>
+
+        <div class="menu-container">
+            <div class="menu-section" id="chocolate">
+                <div class="menu-category">
+                    <h2><span class="category-icon">🍫</span> Signature Chocolate Indulgences</h2>
+                </div>
+                
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="WalnutBrownie.jpeg" alt="Coffee Cake">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Coffee Cake</h3>
+                            <p class="item-description">Rich coffee-infused chocolate delight</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="1" data-name="Coffee Cake">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="MochaDatesJowarCake.jpeg" alt="Almond Chocolate Mocha Cake">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Almond Chocolate Mocha Cake</h3>
+                            <p class="item-description">Decadent mocha layers with almond crunch</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="2" data-name="Almond Chocolate Mocha Cake">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="RagiChocolateMuffins.jpeg" alt="Ragi Chocolate Cake">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Ragi Chocolate Cake</h3>
+                            <p class="item-description">Healthy indulgence with finger millet</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="3" data-name="Ragi Chocolate Cake">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="BlueberryCake.jpeg" alt="Wholewheat Blueberry Crumble">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Wholewheat Blueberry Crumble</h3>
+                            <p class="item-description">With blueberry chia jam topping</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="4" data-name="Wholewheat Blueberry Crumble">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="ChocolateFudgeBites.jpeg" alt="Chocolate Coconut Bounty Cake">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Chocolate Coconut Bounty Cake</h3>
+                            <p class="item-description">Tropical coconut-chocolate fusion</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="5" data-name="Chocolate Coconut Bounty Cake">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="MousseCake.png" alt="Chocolate Mousse Cake">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Chocolate Mousse Cake</h3>
+                            <p class="item-description">Light, airy chocolate perfection</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="6" data-name="Chocolate Mousse Cake">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="CheeseCake.jpeg" alt="Red Velvet Cupcakes">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Red Velvet Cupcakes</h3>
+                            <p class="item-description">Classic red velvet with cream cheese frosting</p>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="7" data-name="Red Velvet Cupcakes">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="WalnutBrownie.jpeg" alt="Chocolate Fudge Brownies">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Chocolate Fudge Brownies</h3>
+                            <p class="item-description">With walnut or almond topping</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="8" data-name="Chocolate Fudge Brownies">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="RagiChocolateTart.jpeg" alt="Ragi Chocolate Tart">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Ragi Chocolate Tart</h3>
+                            <p class="item-description">Healthy tart with rich chocolate filling</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="9" data-name="Ragi Chocolate Tart">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="LavaCake.png" alt="Lava Cake">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Lava Cake</h3>
+                            <p class="item-description">Warm molten chocolate center</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="10" data-name="Lava Cake">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section" id="cookies">
+                <div class="menu-category">
+                    <h2><span class="category-icon">🍪</span> Best-Selling Cookies</h2>
+                </div>
+                
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="OatsAndRaisenCookies.jpeg" alt="Oats Raisins Cookies">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Oats Raisins Cookies</h3>
+                            <p class="item-description">Chewy oatmeal cookies with plump raisins</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="11" data-name="Oats Raisins Cookies">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="Brookies.jpeg" alt="Choco Chip Cookies">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Choco Chip Cookies</h3>
+                            <p class="item-description">Classic chocolate chip perfection</p>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="12" data-name="Choco Chip Cookies">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="AlmondThumbprintCookies.jpeg" alt="Almond Thumbprint Cookies">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Almond Thumbprint Cookies</h3>
+                            <p class="item-description">Buttery almond cookies with jam center</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="13" data-name="Almond Thumbprint Cookies">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="Brookies.jpeg" alt="Brookies">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Brookies</h3>
+                            <p class="item-description">Brownie + cookie hybrid treat</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="14" data-name="Brookies">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="ChocolateFudgeBites.jpeg" alt="Edible Cookie Dough Bites">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Edible Cookie Dough Bites</h3>
+                            <p class="item-description">Safe-to-eat cookie dough indulgence</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="15" data-name="Edible Cookie Dough Bites">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="OatsAndRaisenCookies.jpeg" alt="Mix Seed Cookies">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Mix Seed Cookies</h3>
+                            <p class="item-description">Nutritious seeds in every bite</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="16" data-name="Mix Seed Cookies">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="Nankhatai.jpeg" alt="Nankhatai">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Nankhatai</h3>
+                            <p class="item-description">Traditional Indian shortbread cookies</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="17" data-name="Nankhatai">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-section" id="bars">
+                <div class="menu-category">
+                    <h2><span class="category-icon">🍬</span> Best-Selling Bars</h2>
+                </div>
+                
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="FinalLogoTheDessertBox.png" alt="Rakhi Special Laddos">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Rakhi Special Surprise Laddos</h3>
+                            <p class="item-description">Festive sweet surprise for Raksha Bandhan</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="18" data-name="Rakhi Special Laddos">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="ChocolateProteinBar.png" alt="Chocolate Protein Bars">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Chocolate Protein Bars</h3>
+                            <p class="item-description">Energy-boosting nutritious bars</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="19" data-name="Chocolate Protein Bars">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="item-image">
+                            <img src="TwixBar.jpeg" alt="Healthy Twix Bar">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">Healthy Twix Bar</h3>
+                            <p class="item-description">Guilt-free version of the classic</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="20" data-name="Healthy Twix Bar">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn" aria-label="Add to favorites">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+           
+        <div class="menu-contact">
+    <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> Chattu Terrace, Sasson Dock, Next To Colaba Market</p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+918369322085">+91 83693 22085</a></p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:thedessertbox25@gmail.com">thedessertbox25@gmail.com</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918369322085" target="_blank">Message us on WhatsApp</a></p>
+    </div>
+    <a href="https://www.instagram.com/_the_dessert_box_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="instagram-link" target="_blank">
+        <i class="fab fa-instagram"></i> @the_dessert_box_
+    </a>
+</div>
+    </main>
+
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column footer-about">
-                    <h3>The Dessert Box</h3>
-                    <p>We craft each dessert with passion, quality ingredients, and attention to detail.</p>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>The Dessert Box is dedicated to creating premium desserts using the finest ingredients and traditional recipes with a modern twist.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/_the_dessert_box_/"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/_the_dessert_box_/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
+                <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="menu.html"><i class="fas fa-chevron-right"></i> Our Menu</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>Popular Desserts</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Chocolate Fudge Brownies Almond / Walnuts</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Chocolate Mocha Cake</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Healthy Twix Bars</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Brookies</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Surprise Laddo</a></li>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Chattu Terrace, Sasson Dock</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+918369322085">+91 83693 22085</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/918369322085" target="_blank">WhatsApp us</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:thedessertbox25@gmail.com">thedessertbox25@gmail.com</a></li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 10AM - 8PM</li>
                     </ul>
                 </div>
-                <div class="footer-column footer-subscribe">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to receive updates, special offers, and dessert inspiration.</p>
-                    <form class="subscribe-form">
-                        <input type="email" placeholder="Your Email Address" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 The Dessert Box. All rights reserved. </p>
-            </div>
+            <p class="copyright">&copy; 2023 The Dessert Box. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Dessert Cart</h2>
+                <button class="close-cart" id="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Add some delicious desserts to your cart!</p>
+                </div>
+            </div>
+            <!-- Removed cart-total display -->
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-shopping-bag"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Item added to cart!</span>
+    </div>
 
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const menu = document.getElementById('menu');
+        const menu = document.querySelector('nav');
         
         mobileMenuBtn.addEventListener('click', () => {
             const isExpanded = menu.classList.contains('active');
             menu.classList.toggle('active');
             mobileMenuBtn.innerHTML = isExpanded ? 
-                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if(this.getAttribute('href') === '#') return;
-                
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                menu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80, // Adjust for fixed header
-                        behavior: 'smooth'
-                    });
-                }
-            });
         });
         
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(109, 76, 61, 0.95)';
-                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.classList.add('scrolled-header');
             } else {
-                header.style.backgroundColor = '';
-                header.style.boxShadow = '';
+                header.classList.remove('scrolled-header');
             }
         });
 
-        // Animation on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
+        // Category Navigation (smooth scroll to section)
+        const categoryLinks = document.querySelectorAll('.category-nav a');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                categoryLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                // Adjust for fixed header height
+                const offsetTop = targetElement.offsetTop - (document.querySelector('header').offsetHeight + document.querySelector('.category-nav').offsetHeight);
+                window.scrollTo({ behavior: 'smooth', top: offsetTop });
             });
-        }, { threshold: 0.1 });
-
-        // Observe elements for animation
-        document.querySelectorAll('.menu-item, .testimonial, .about-text, .about-image').forEach(element => {
-            observer.observe(element);
         });
 
-        // Initialize animations for elements already in view on load
-        document.querySelectorAll('.menu-item, .testimonial, .about-text, .about-image').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.9) {
-                el.classList.add('animate');
+        // Favorite button functionality
+        const favoriteBtns = document.querySelectorAll('.favorite-btn');
+        favoriteBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const heartIcon = btn.querySelector('i');
+                if (btn.classList.contains('active')) {
+                    heartIcon.classList.remove('far');
+                    heartIcon.classList.add('fas');
+                } else {
+                    heartIcon.classList.remove('fas');
+                    heartIcon.classList.add('far');
+                }
+                // Announce favorite state for accessibility
+                btn.setAttribute('aria-pressed', btn.classList.contains('active'));
+                showToastMessage(btn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!');
+            });
+        });
+
+        // Cart functionality
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartCount = document.querySelector('.cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        // const cartTotal = document.getElementById('cart-total'); // Removed price display
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const toast = document.getElementById('toast');
+        
+        let cart = [];
+        
+        // Open cart modal
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.classList.add('active');
+            cartModal.setAttribute('aria-hidden', 'false');
+        });
+        
+        // Close cart modal
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+            cartModal.setAttribute('aria-hidden', 'true');
+        });
+        
+        // Add to cart
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-id');
+                const name = btn.getAttribute('data-name');
+                // const price = parseInt(btn.getAttribute('data-price')); // Price removed
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        // price, // Price removed
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                showToastMessage(`'${name}' added to cart!`);
+            });
+        });
+        
+        // Show toast notification
+        function showToastMessage(message) {
+            toast.querySelector('span').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Update cart UI
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            cartCount.setAttribute('aria-live', 'polite'); // Announce changes to screen readers
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some delicious desserts to your cart!</p>
+                    </div>
+                `;
+                // cartTotal.textContent = '₹0'; // Price removed
+                return;
             }
+            
+            cartItemsContainer.innerHTML = '';
+            // let total = 0; // Price calculation removed
+            
+            cart.forEach(item => {
+                // const itemTotal = item.price * item.quantity; // Price calculation removed
+                // total += itemTotal; // Price calculation removed
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${getImageByItemName(item.name)}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <!-- <div class="cart-item-price">₹${item.price}</div> -->
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn minus" data-id="${item.id}" aria-label="Decrease quantity of ${item.name}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn plus" data-id="${item.id}" aria-label="Increase quantity of ${item.name}">+</button>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}" aria-label="Remove ${item.name} from cart">Remove</button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            // cartTotal.textContent = `₹${total}`; // Price display removed
+            
+            // Add event listeners to new buttons
+            document.querySelectorAll('.minus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    updateQuantity(id, -1);
+                });
+            });
+            
+            document.querySelectorAll('.plus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    updateQuantity(id, 1);
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    removeItem(id);
+                });
+            });
+        }
+        
+        // Update item quantity
+        function updateQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                
+                updateCart();
+            }
+        }
+        
+        // Remove item from cart
+        function removeItem(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+        
+        // Get image by item name (for demo purposes)
+        function getImageByItemName(name) {
+            // This is a simplified version for the demo
+            // In a real application, you would have a mapping of item names to images
+            if (name.includes('Coffee Cake')) return 'WalnutBrownie.jpeg';
+            if (name.includes('Almond Chocolate')) return 'MochaDatesJowarCake.jpeg';
+            if (name.includes('Ragi Chocolate')) return 'RagiChocolateMuffins.jpeg';
+            if (name.includes('Blueberry')) return 'BlueberryCake.jpeg';
+            if (name.includes('Coconut Bounty')) return 'ChocolateFudgeBites.jpeg';
+            if (name.includes('Mousse')) return 'MousseCake.png';
+            if (name.includes('Red Velvet')) return 'CheeseCake.jpeg';
+            if (name.includes('Brownies')) return 'WalnutBrownie.jpeg';
+            if (name.includes('Tart')) return 'RagiChocolateTart.jpeg';
+            if (name.includes('Lava')) return 'LavaCake.png';
+            if (name.includes('Oats Raisins')) return 'OatsAndRaisenCookies.jpeg';
+            if (name.includes('Choco Chip')) return 'Brookies.jpeg';
+            if (name.includes('Thumbprint')) return 'AlmondThumbprintCookies.jpeg';
+            if (name.includes('Brookies')) return 'Brookies.jpeg';
+            if (name.includes('Cookie Dough')) return 'ChocolateFudgeBites.jpeg';
+            if (name.includes('Mix Seed')) return 'OatsAndRaisenCookies.jpeg';
+            if (name.includes('Nankhatai')) return 'Nankhatai.jpeg';
+            if (name.includes('Laddos')) return 'FinalLogoTheDessertBox.png';
+            if (name.includes('Protein')) return 'ChocolateProteinBar.png';
+            if (name.includes('Twix')) return 'TwixBar.jpeg';
+            return 'FinalLogoTheDessertBox.png';
+        }
+        
+        // Checkout button
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                showToastMessage('Your cart is empty!'); // Changed alert to toast
+                return;
+            }
+            
+            // In a real application, this would redirect to checkout page
+            showToastMessage('Proceeding to checkout!'); // Removed total from message
+            cart = [];
+            updateCart();
+            cartModal.classList.remove('active');
+            cartModal.setAttribute('aria-hidden', 'true');
         });
+        
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const resetFiltersBtn = document.getElementById('reset-filters');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filterType = btn.textContent.trim();
+                showToastMessage(`Filtered by: ${filterType}`);
+            });
+        });
+        
+        resetFiltersBtn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            filterBtns[0].classList.add('active');
+            showToastMessage('Filters reset');
+        });
+        
+        // Initialize cart on page load
+        updateCart();
     </script>
 </body>
 </html>
