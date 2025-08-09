@@ -40,7 +40,8 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             padding-top: 80px; /* Adjusted padding-top for thinner header on desktop */
-            overflow-x: hidden;
+            overflow-x: hidden; /* Ensures no horizontal scrollbar even if content overflows */
+            max-width: 100vw; /* Explicitly constrain body width to viewport width */
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
 
@@ -1360,7 +1361,7 @@
                 <ul id="menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
-                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#chocolate-indulgences">Menu</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
                     <li>
                         <a href="#" class="cart-icon" id="cart-icon" aria-label="View shopping cart">
@@ -2173,7 +2174,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="menu.html">Our Menu</a></li>
+                        <li><a href="#chocolate-indulgences">Our Menu</a></li>
                         <li><a href="index.html#contact">Contact Us</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
