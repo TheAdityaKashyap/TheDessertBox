@@ -24,6 +24,7 @@
             --gold: #C19A6B;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --success: #5cb85c;
         }
 
         body {
@@ -32,6 +33,7 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             padding-top: 100px;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5 {
@@ -57,6 +59,12 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .scrolled-header {
+            background: rgba(92, 61, 46, 0.95);
+            padding: 0.8rem 0;
         }
 
         .header-container {
@@ -80,12 +88,22 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .scrolled-header .logo img {
+            height: 60px;
         }
 
         .logo-text {
             font-size: 2rem;
             font-weight: bold;
             color: white;
+            transition: var(--transition);
+        }
+
+        .scrolled-header .logo-text {
+            font-size: 1.8rem;
         }
 
         .logo-tagline {
@@ -117,6 +135,7 @@
             letter-spacing: 1.5px;
             font-size: 0.95rem;
             box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+            cursor: pointer;
         }
 
         .cta-button:hover {
@@ -131,6 +150,7 @@
             display: flex;
             list-style: none;
             gap: 2.5rem;
+            align-items: center;
         }
 
         nav a {
@@ -163,6 +183,116 @@
             width: 100%;
         }
 
+        /* Cart Icon */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--gold);
+            color: var(--dark);
+            font-size: 0.7rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            position: sticky;
+            top: 100px;
+            background: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 900;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .scrolled-header ~ .category-nav {
+            top: 80px;
+        }
+
+        .category-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-nav li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-nav li a:hover,
+        .category-nav li a.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .category-nav li a i {
+            font-size: 1.2rem;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: var(--light);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
         /* Menu Page Styles */
         .menu-hero {
             text-align: center;
@@ -178,6 +308,7 @@
             color: var(--white);
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
         }
 
         .menu-hero p {
@@ -185,6 +316,7 @@
             max-width: 700px;
             margin: 0 auto 30px;
             opacity: 0.9;
+            animation: fadeInUp 1s ease;
         }
 
         .menu-container {
@@ -195,6 +327,7 @@
             margin-bottom: 60px;
             position: relative;
             overflow: hidden;
+            animation: fadeIn 1s ease;
         }
 
         .menu-container::before {
@@ -263,8 +396,8 @@
             position: relative;
             overflow: hidden;
             display: flex;
-            align-items: center;
             gap: 20px;
+            animation: fadeIn 0.5s ease;
         }
 
         .menu-item:hover {
@@ -288,8 +421,8 @@
         }
 
         .item-image {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 15px;
             overflow: hidden;
             flex-shrink: 0;
@@ -321,6 +454,66 @@
             color: #666;
             font-style: italic;
             font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .dietary-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .dietary-tag {
+            background: var(--secondary);
+            color: var(--dark);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .item-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .add-to-cart {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .add-to-cart:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .favorite-btn {
+            background: transparent;
+            border: none;
+            color: #ccc;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .favorite-btn.active {
+            color: #ff6b6b;
         }
 
         .menu-contact {
@@ -339,6 +532,10 @@
         .contact-info p {
             font-size: 1.2rem;
             margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .contact-info a {
@@ -375,15 +572,295 @@
             margin-top: 60px;
         }
 
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+        }
+
         .copyright {
             font-size: 1.1rem;
             opacity: 0.8;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: flex-end;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-content {
+            width: 100%;
+            max-width: 450px;
+            background: var(--white);
+            height: 100%;
+            padding: 30px;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: var(--transition);
+        }
+
+        .cart-modal.active .cart-content {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 20px 0;
+            border-top: 2px solid #eee;
+            margin-top: 10px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .checkout-btn:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--success);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 3000;
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         /* Responsive Design */
         @media (max-width: 992px) {
             .menu-hero h1 {
                 font-size: 3rem;
+            }
+            
+            .menu-items {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
 
@@ -428,6 +905,10 @@
             .menu-items {
                 grid-template-columns: 1fr;
             }
+            
+            .cart-content {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 576px) {
@@ -453,8 +934,19 @@
             }
             
             .item-image {
-                width: 80px;
-                height: 80px;
+                width: 100%;
+                height: 200px;
+                margin: 0 auto;
+            }
+            
+            .item-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .add-to-cart {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -476,25 +968,55 @@
                 <ul id="menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#about">About</a></li>
-                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#menu">Menu</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
+                    <li>
+                        <a href="#" class="cart-icon" id="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
                     <li><a href="index.html#contact" class="cta-button">Order Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <div class="category-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#chocolate" class="active"><i class="fas fa-cookie-bite"></i> Chocolate</a></li>
+                <li><a href="#cookies"><i class="fas fa-cookie"></i> Cookies</a></li>
+                <li><a href="#bars"><i class="fas fa-candy-cane"></i> Bars</a></li>
+            </ul>
+        </div>
+    </div>
+
     <section class="menu-hero">
         <div class="container">
             <h1>Our Complete Dessert Menu</h1>
             <p>Indulge in our premium selection of homemade desserts crafted with love and the finest ingredients</p>
-            <a href="index.html#contact" class="cta-button">Place an Order</a>
+            <a href="#menu" class="cta-button">Explore Menu</a>
         </div>
     </section>
 
     <main class="container">
+        <div class="filter-section">
+            <div class="filter-header">
+                <h2>Filter Desserts</h2>
+                <button class="cta-button" id="reset-filters">Reset Filters</button>
+            </div>
+            <div class="filter-options">
+                <button class="filter-btn active"><i class="fas fa-star"></i> All Items</button>
+                <button class="filter-btn"><i class="fas fa-seedling"></i> Vegan</button>
+                <button class="filter-btn"><i class="fas fa-wheat-alt"></i> Gluten-Free</button>
+                <button class="filter-btn"><i class="fas fa-heart"></i> Low Sugar</button>
+                <button class="filter-btn"><i class="fas fa-bolt"></i> Popular</button>
+            </div>
+        </div>
+
         <div class="menu-container">
-            <div class="menu-section">
+            <div class="menu-section" id="chocolate">
                 <div class="menu-category">
                     <h2><span class="category-icon">🍫</span> Signature Chocolate Indulgences</h2>
                 </div>
@@ -507,6 +1029,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Coffee Cake</h3>
                             <p class="item-description">Rich coffee-infused chocolate delight</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹350</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="1" data-name="Coffee Cake" data-price="350">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -517,6 +1052,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Almond Chocolate Mocha Cake</h3>
                             <p class="item-description">Decadent mocha layers with almond crunch</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-price">₹420</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="2" data-name="Almond Chocolate Mocha Cake" data-price="420">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -527,6 +1074,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Ragi Chocolate Cake</h3>
                             <p class="item-description">Healthy indulgence with finger millet</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹380</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="3" data-name="Ragi Chocolate Cake" data-price="380">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -537,6 +1097,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Wholewheat Blueberry Crumble</h3>
                             <p class="item-description">With blueberry chia jam topping</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹390</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="4" data-name="Wholewheat Blueberry Crumble" data-price="390">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -547,6 +1119,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Chocolate Coconut Bounty Cake</h3>
                             <p class="item-description">Tropical coconut-chocolate fusion</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                            </div>
+                            <div class="item-price">₹410</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="5" data-name="Chocolate Coconut Bounty Cake" data-price="410">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -557,6 +1141,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Chocolate Mousse Cake</h3>
                             <p class="item-description">Light, airy chocolate perfection</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-price">₹450</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="6" data-name="Chocolate Mousse Cake" data-price="450">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -567,6 +1163,15 @@
                         <div class="item-details">
                             <h3 class="item-name">Red Velvet Cupcakes</h3>
                             <p class="item-description">Classic red velvet with cream cheese frosting</p>
+                            <div class="item-price">₹320</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="7" data-name="Red Velvet Cupcakes" data-price="320">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -577,6 +1182,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Chocolate Fudge Brownies</h3>
                             <p class="item-description">With walnut or almond topping</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹280</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="8" data-name="Chocolate Fudge Brownies" data-price="280">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -587,6 +1205,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Ragi Chocolate Tart</h3>
                             <p class="item-description">Healthy tart with rich chocolate filling</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹360</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="9" data-name="Ragi Chocolate Tart" data-price="360">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -597,12 +1228,24 @@
                         <div class="item-details">
                             <h3 class="item-name">Lava Cake</h3>
                             <p class="item-description">Warm molten chocolate center</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-price">₹340</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="10" data-name="Lava Cake" data-price="340">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="menu-section">
+            <div class="menu-section" id="cookies">
                 <div class="menu-category">
                     <h2><span class="category-icon">🍪</span> Best-Selling Cookies</h2>
                 </div>
@@ -615,6 +1258,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Oats Raisins Cookies</h3>
                             <p class="item-description">Chewy oatmeal cookies with plump raisins</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹240</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="11" data-name="Oats Raisins Cookies" data-price="240">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -625,6 +1280,15 @@
                         <div class="item-details">
                             <h3 class="item-name">Choco Chip Cookies</h3>
                             <p class="item-description">Classic chocolate chip perfection</p>
+                            <div class="item-price">₹220</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="12" data-name="Choco Chip Cookies" data-price="220">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -635,6 +1299,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Almond Thumbprint Cookies</h3>
                             <p class="item-description">Buttery almond cookies with jam center</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-price">₹260</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="13" data-name="Almond Thumbprint Cookies" data-price="260">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -645,6 +1321,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Brookies</h3>
                             <p class="item-description">Brownie + cookie hybrid treat</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                            </div>
+                            <div class="item-price">₹280</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="14" data-name="Brookies" data-price="280">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -655,6 +1343,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Edible Cookie Dough Bites</h3>
                             <p class="item-description">Safe-to-eat cookie dough indulgence</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹210</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="15" data-name="Edible Cookie Dough Bites" data-price="210">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -665,6 +1366,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Mix Seed Cookies</h3>
                             <p class="item-description">Nutritious seeds in every bite</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹230</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="16" data-name="Mix Seed Cookies" data-price="230">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -675,12 +1389,24 @@
                         <div class="item-details">
                             <h3 class="item-name">Nankhatai</h3>
                             <p class="item-description">Traditional Indian shortbread cookies</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹200</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="17" data-name="Nankhatai" data-price="200">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="menu-section">
+            <div class="menu-section" id="bars">
                 <div class="menu-category">
                     <h2><span class="category-icon">🍬</span> Best-Selling Bars</h2>
                 </div>
@@ -693,6 +1419,18 @@
                         <div class="item-details">
                             <h3 class="item-name">Rakhi Special Surprise Laddos</h3>
                             <p class="item-description">Festive sweet surprise for Raksha Bandhan</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                            </div>
+                            <div class="item-price">₹320</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="18" data-name="Rakhi Special Laddos" data-price="320">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -703,6 +1441,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Chocolate Protein Bars</h3>
                             <p class="item-description">Energy-boosting nutritious bars</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Vegan</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹280</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="19" data-name="Chocolate Protein Bars" data-price="280">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     
@@ -713,6 +1464,19 @@
                         <div class="item-details">
                             <h3 class="item-name">Healthy Twix Bar</h3>
                             <p class="item-description">Guilt-free version of the classic</p>
+                            <div class="dietary-tags">
+                                <span class="dietary-tag">Gluten-Free</span>
+                                <span class="dietary-tag">Low Sugar</span>
+                            </div>
+                            <div class="item-price">₹250</div>
+                            <div class="item-actions">
+                                <button class="add-to-cart" data-id="20" data-name="Healthy Twix Bar" data-price="250">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                                <button class="favorite-btn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -733,14 +1497,75 @@
 
     <footer class="footer">
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>The Dessert Box is dedicated to creating premium desserts using the finest ingredients and traditional recipes with a modern twist.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Chattu Terrace, Sasson Dock</li>
+                        <li><i class="fas fa-phone"></i> +91 83693 22085</li>
+                        <li><i class="fas fa-envelope"></i> thedessertbox25@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 10AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
             <p class="copyright">&copy; 2023 The Dessert Box. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Your Dessert Cart</h2>
+                <button class="close-cart" id="close-cart">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Add some delicious desserts to your cart!</p>
+                </div>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">₹0</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">
+                <i class="fas fa-shopping-bag"></i> Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Item added to cart!</span>
+    </div>
+
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const menu = document.getElementById('menu');
+        const menu = document.querySelector('nav');
         
         mobileMenuBtn.addEventListener('click', () => {
             menu.classList.toggle('active');
@@ -752,13 +1577,265 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(109, 76, 61, 0.95)';
-                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.classList.add('scrolled-header');
             } else {
-                header.style.backgroundColor = '';
-                header.style.boxShadow = '';
+                header.classList.remove('scrolled-header');
             }
         });
+
+        // Category Navigation
+        const categoryLinks = document.querySelectorAll('.category-nav a');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                categoryLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Favorite button functionality
+        const favoriteBtns = document.querySelectorAll('.favorite-btn');
+        favoriteBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                const heartIcon = btn.querySelector('i');
+                if (btn.classList.contains('active')) {
+                    heartIcon.classList.remove('far');
+                    heartIcon.classList.add('fas');
+                } else {
+                    heartIcon.classList.remove('fas');
+                    heartIcon.classList.add('far');
+                }
+            });
+        });
+
+        // Cart functionality
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartCount = document.querySelector('.cart-count');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const toast = document.getElementById('toast');
+        
+        let cart = [];
+        
+        // Open cart modal
+        cartIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.classList.add('active');
+        });
+        
+        // Close cart modal
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+        });
+        
+        // Add to cart
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.getAttribute('data-id');
+                const name = btn.getAttribute('data-name');
+                const price = parseInt(btn.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                showToast();
+            });
+        });
+        
+        // Show toast notification
+        function showToast() {
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Update cart UI
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some delicious desserts to your cart!</p>
+                    </div>
+                `;
+                cartTotal.textContent = '₹0';
+                return;
+            }
+            
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${getImageByItemName(item.name)}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">₹${item.price}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}">Remove</button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItem);
+            });
+            
+            cartTotal.textContent = `₹${total}`;
+            
+            // Add event listeners to new buttons
+            document.querySelectorAll('.minus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    updateQuantity(id, -1);
+                });
+            });
+            
+            document.querySelectorAll('.plus').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    updateQuantity(id, 1);
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-id');
+                    removeItem(id);
+                });
+            });
+        }
+        
+        // Update item quantity
+        function updateQuantity(id, change) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== id);
+                }
+                
+                updateCart();
+            }
+        }
+        
+        // Remove item from cart
+        function removeItem(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+        
+        // Get image by item name (for demo purposes)
+        function getImageByItemName(name) {
+            // This is a simplified version for the demo
+            // In a real application, you would have a mapping of item names to images
+            if (name.includes('Coffee Cake')) return 'WalnutBrownie.jpeg';
+            if (name.includes('Almond Chocolate')) return 'MochaDatesJowarCake.jpeg';
+            if (name.includes('Ragi Chocolate')) return 'RagiChocolateMuffins.jpeg';
+            if (name.includes('Blueberry')) return 'BlueberryCake.jpeg';
+            if (name.includes('Coconut Bounty')) return 'ChocolateFudgeBites.jpeg';
+            if (name.includes('Mousse')) return 'MousseCake.png';
+            if (name.includes('Red Velvet')) return 'CheeseCake.jpeg';
+            if (name.includes('Brownies')) return 'WalnutBrownie.jpeg';
+            if (name.includes('Tart')) return 'RagiChocolateTart.jpeg';
+            if (name.includes('Lava')) return 'LavaCake.png';
+            if (name.includes('Oats Raisins')) return 'OatsAndRaisenCookies.jpeg';
+            if (name.includes('Choco Chip')) return 'Brookies.jpeg';
+            if (name.includes('Thumbprint')) return 'AlmondThumbprintCookies.jpeg';
+            if (name.includes('Brookies')) return 'Brookies.jpeg';
+            if (name.includes('Cookie Dough')) return 'ChocolateFudgeBites.jpeg';
+            if (name.includes('Mix Seed')) return 'OatsAndRaisenCookies.jpeg';
+            if (name.includes('Nankhatai')) return 'Nankhatai.jpeg';
+            if (name.includes('Laddos')) return 'FinalLogoTheDessertBox.png';
+            if (name.includes('Protein')) return 'ChocolateProteinBar.png';
+            if (name.includes('Twix')) return 'TwixBar.jpeg';
+            return 'FinalLogoTheDessertBox.png';
+        }
+        
+        // Checkout button
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            // In a real application, this would redirect to checkout page
+            alert('Proceeding to checkout! Total: ' + cartTotal.textContent);
+            cart = [];
+            updateCart();
+            cartModal.classList.remove('active');
+        });
+        
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const resetFiltersBtn = document.getElementById('reset-filters');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // In a real application, this would filter the items
+                // For this demo, we'll just show an alert
+                const filterType = btn.textContent.trim();
+                showToastMessage(`Filtered by: ${filterType}`);
+            });
+        });
+        
+        resetFiltersBtn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            filterBtns[0].classList.add('active');
+            showToastMessage('Filters reset');
+        });
+        
+        function showToastMessage(message) {
+            toast.querySelector('span').textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+        
+        // Initialize cart
+        updateCart();
     </script>
 </body>
 </html>
