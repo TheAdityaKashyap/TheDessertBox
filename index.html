@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -31,7 +32,7 @@
             color: var(--text);
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         h1, h2, h3, h4, h5 {
@@ -58,6 +59,7 @@
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth header scroll effect */
         }
 
         .header-container {
@@ -134,13 +136,14 @@
         }
 
         .mobile-menu-btn {
-            display: none;
+            display: none; /* Hidden by default on desktop */
             background: none;
             border: none;
             color: var(--white);
             font-size: 2rem;
             cursor: pointer;
             z-index: 1001;
+            padding: 10px; /* Increase touch target size */
         }
 
         .cta-button {
@@ -170,7 +173,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            min-height: 800px;
+            min-height: 700px; /* Adjusted min-height for mobile */
             background: linear-gradient(rgba(92, 61, 46, 0.7), rgba(92, 61, 46, 0.7)), url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
             color: var(--white);
             display: flex;
@@ -250,7 +253,7 @@
 
         /* Sections */
         section {
-            padding: 120px 0;
+            padding: 120px 0; /* Default padding for desktop */
         }
 
         .section-title {
@@ -871,6 +874,9 @@
         }
 
         @media (max-width: 768px) {
+            section {
+                padding: 80px 0; /* Reduced padding for sections on tablets/mobiles */
+            }
             .mobile-menu-btn {
                 display: block;
             }
@@ -914,7 +920,7 @@
             }
             
             .menu-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column for menu items */
             }
             
             .footer-content {
@@ -925,9 +931,19 @@
             .subscribe-form {
                 flex-direction: column;
             }
+
+            .about-image {
+                transform: rotate(0deg); /* Remove slight rotation on mobile for better fit */
+            }
+            .about-image:hover {
+                transform: scale(1.02);
+            }
         }
 
         @media (max-width: 576px) {
+            section {
+                padding: 60px 0; /* Further reduced padding for small mobile screens */
+            }
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -943,75 +959,57 @@
             .logo-text {
                 font-size: 1.8rem;
             }
+
+            .logo-tagline {
+                font-size: 0.8rem;
+            }
+
+            .menu-item-content {
+                padding: 20px; /* Slightly reduce padding inside menu items */
+            }
+
+            .menu-category h3 {
+                font-size: 2rem;
+                padding: 0 10px;
+            }
+            .category-icon {
+                font-size: 1.5rem;
+            }
+            .contact-form {
+                padding: 30px; /* Reduced contact form padding */
+            }
         }
         
-        /* Decorative elements */
-        .pink-flourish {
-            position: absolute;
-            width: 150px;
-            height: auto;
-            opacity: 0.15;
-            z-index: -1;
-        }
-        
-        .top-left {
-            top: 5%;
-            left: 5%;
-            transform: rotate(-15deg);
-        }
-        
-        .bottom-right {
-            bottom: 5%;
-            right: 5%;
-            transform: rotate(15deg);
-        }
-        
-        .brown-flourish {
-            position: absolute;
-            width: 120px;
-            height: auto;
-            opacity: 0.2;
-            z-index: -1;
-        }
-        
-        .top-right {
-            top: 10%;
-            right: 10%;
-            transform: rotate(25deg);
-        }
-        
-        .bottom-left {
-            bottom: 10%;
-            left: 10%;
-            transform: rotate(-25deg);
-        }
-        
-        .decorative-divider {
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-            margin: 40px auto;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 50%;
-        }
-        
-        .floating-element {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: var(--accent);
-            opacity: 0.3;
-            animation: float 8s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            25% { transform: translateY(-20px) translateX(10px); }
-            50% { transform: translateY(0) translateX(20px); }
-            75% { transform: translateY(20px) translateX(10px); }
+        /* Decorative elements - adjust for mobile if they cause issues */
+        .pink-flourish, .brown-flourish, .floating-element {
+            /* On mobile, these can be less prominent or hidden if they clutter */
+            display: block; /* Ensure they are not hidden by default */
         }
 
+        @media (max-width: 768px) {
+            .pink-flourish, .brown-flourish {
+                width: 100px; /* Reduce size */
+                opacity: 0.1; /* Make them more subtle */
+            }
+            .floating-element {
+                width: 20px; /* Reduce size */
+                height: 20px;
+                opacity: 0.2; /* Make them more subtle */
+            }
+            /* Adjust positions or hide completely if necessary */
+            .top-left { top: 2%; left: 2%; }
+            .bottom-right { bottom: 2%; right: 2%; }
+            .top-right { top: 5%; right: 5%; }
+            .bottom-left { bottom: 5%; left: 5%; }
+        }
+
+        @media (max-width: 576px) {
+            /* Hide decorative elements on very small screens to reduce clutter */
+            .pink-flourish, .brown-flourish, .floating-element {
+                display: none;
+            }
+        }
+        
         /* Enhanced Micro-Animations & Hover Effects */
         .menu-item {
             position: relative;
@@ -1044,76 +1042,6 @@
             position: relative;
             overflow: hidden;
         }
-
-        .menu-item-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            height: auto;
-            opacity: 0.15;
-            z-index: -1;
-        }
-        
-        .top-left {
-            top: 5%;
-            left: 5%;
-            transform: rotate(-15deg);
-        }
-        
-        .bottom-right {
-            bottom: 5%;
-            right: 5%;
-            transform: rotate(15deg);
-        }
-        
-        .brown-flourish {
-            position: absolute;
-            width: 120px;
-            height: auto;
-            opacity: 0.2;
-            z-index: -1;
-        }
-        
-        .top-right {
-            top: 10%;
-            right: 10%;
-            transform: rotate(25deg);
-        }
-        
-        .bottom-left {
-            bottom: 10%;
-            left: 10%;
-            transform: rotate(-25deg);
-        }
-        
-        .decorative-divider {
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-            margin: 40px auto;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 50%;
-        }
-        
-        .floating-element {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: var(--accent);
-            opacity: 0.3;
-            animation: float 8s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); }
-            25% { transform: translateY(-20px) translateX(10px); }
-            50% { transform: translateY(0) translateX(20px); }
-            75% { transform: translateY(20px) translateX(10px); }
-        }
     </style>
 </head>
 <body>
@@ -1128,7 +1056,7 @@
                     <div style="font-size: 1rem; color: #eee;">PREMIUM DESSERTS</div>
                 </div>
             </a>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-controls="menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
@@ -1288,16 +1216,6 @@
                     <h3><span class="category-icon">🍪</span> Cookies & Bites</h3>
                 </div>
                 
-                <!-- <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="AlmondThumbprintCookies.jpeg" alt="Mix Seed Cookies">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Mix Seed Cookies</h3>
-                        <p>Loaded with sunflower, flax, and chia for a crunchy boost.</p>
-                    </div>
-                </div> -->
-                
                 <div class="menu-item">
                     <div class="menu-item-image">
                         <img src="OatsAndRaisenCookies.jpeg" alt="Oats and Raisin Cookies">
@@ -1317,16 +1235,6 @@
                         <p>Buttery almond cookies with fruit jam centers.</p>
                     </div>
                 </div>
-                
-                <!-- <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="ChocolateProteinBarNew.jpg" alt="Edible Cookie Dough Bites">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Edible Cookie Dough Bites</h3>
-                        <p>Safe-to-eat, egg-free dough balls for pure indulgence.</p>
-                    </div>
-                </div> -->
                 
                 <div class="menu-item">
                     <div class="menu-item-image">
@@ -1367,16 +1275,6 @@
                 <div class="menu-category">
                     <h3><span class="category-icon">🍮</span> Cheesecakes & Extras</h3>
                 </div>
-                
-                <!-- <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src="CheeseCake.jpeg" alt="Protein Bars and Energy Balls">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Protein Bars and Energy Balls</h3>
-                        <p>Perfect snack-sized fuel with nuts, dates, and seeds.</p>
-                    </div>
-                </div> -->
                 
                 <div class="menu-item">
                     <div class="menu-item-image">
@@ -1536,9 +1434,11 @@
         const menu = document.getElementById('menu');
         
         mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = menu.classList.contains('active');
             menu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = menu.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.innerHTML = isExpanded ? 
+                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
         });
         
         // Smooth scrolling for anchor links
@@ -1548,13 +1448,15 @@
                 
                 e.preventDefault();
                 
+                // Close mobile menu if open
                 menu.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
                 
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: target.offsetTop - 80, // Adjust for fixed header
                         behavior: 'smooth'
                     });
                 }
@@ -1582,12 +1484,13 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.menu-item, .testimonial').forEach(element => {
+        // Observe elements for animation
+        document.querySelectorAll('.menu-item, .testimonial, .about-text, .about-image').forEach(element => {
             observer.observe(element);
         });
 
-        // Initialize animations for elements already in view
-        document.querySelectorAll('.menu-item, .testimonial').forEach(el => {
+        // Initialize animations for elements already in view on load
+        document.querySelectorAll('.menu-item, .testimonial, .about-text, .about-image').forEach(el => {
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight * 0.9) {
                 el.classList.add('animate');
