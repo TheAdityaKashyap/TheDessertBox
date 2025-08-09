@@ -215,58 +215,6 @@
             100% { transform: scale(1); }
         }
 
-        /* Category Navigation - Removed as per request */
-        /*
-        .category-nav {
-            position: sticky;
-            top: 80px;
-            background: var(--white);
-            padding: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 900;
-            margin-bottom: 30px;
-            border-radius: 10px;
-        }
-
-        .scrolled-header ~ .category-nav {
-            top: 60px;
-        }
-
-        .category-nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .category-nav li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            padding: 8px 20px;
-            border-radius: 30px;
-            transition: var(--transition);
-            background: var(--light);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .category-nav li a:hover,
-        .category-nav li a.active {
-            background: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        }
-
-        .category-nav li a i {
-            font-size: 1.2rem;
-        }
-        */
-
         /* Menu Page Styles */
         .menu-hero {
             text-align: center;
@@ -567,7 +515,7 @@
             justify-content: space-around;
             gap: 40px; /* Increased gap */
             margin-bottom: 30px; /* Adjusted margin */
-            text-align: left;
+            text-align: left; /* Default left align for sections */
         }
 
         .footer-section {
@@ -593,12 +541,27 @@
             background: var(--gold);
         }
 
-        .footer-section ul {
-            list-style: none;
+        /* Specific alignment for Contact Info footer section */
+        .footer-section.contact-align {
+            text-align: center; /* Center the text content of this section */
         }
 
-        .footer-section ul li {
-            margin-bottom: 12px; /* Increased margin */
+        .footer-section.contact-align h3::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .footer-section.contact-align ul {
+            list-style: none; /* Ensure no list bullets */
+            padding: 0; /* Remove default padding */
+        }
+
+        .footer-section.contact-align ul li {
+            margin-bottom: 12px;
+            display: flex; /* Use flexbox for list items */
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            gap: 8px; /* Space between icon and text */
         }
 
         .footer-section ul li a {
@@ -606,15 +569,20 @@
             text-decoration: none;
             transition: var(--transition);
             font-size: 1.05rem; /* Slightly larger font */
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            /* Removed display: flex and gap here to allow specific styling for contact-align */
         }
 
         .footer-section ul li a:hover {
             color: var(--gold);
             padding-left: 8px; /* More pronounced slide effect */
         }
+        /* Re-add flex and gap for general footer links that are not contact-align */
+        .footer-section:not(.contact-align) ul li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
 
         .social-links {
             display: flex;
@@ -925,8 +893,6 @@
             .logo-tagline {
                 font-size: 0.8rem;
             }
-            /* .category-nav { top: 70px; } */
-            /* .scrolled-header ~ .category-nav { top: 50px; } */
         }
 
         @media (max-width: 768px) {
@@ -999,8 +965,6 @@
             .logo-tagline {
                 font-size: 0.7rem;
             }
-            /* .category-nav { top: 60px; } */
-            /* .scrolled-header ~ .category-nav { top: 40px; } */
             .menu-contact {
                 padding: 30px; /* Reduced padding on contact for smaller screens */
             }
@@ -1071,8 +1035,6 @@
             .logo-tagline {
                 display: none; /* Hide tagline on very small screens to save space */
             }
-            /* .category-nav { top: 50px; } */
-            /* .scrolled-header ~ .category-nav { top: 35px; } */
             .footer-section {
                 min-width: 100%; /* Stack footer columns on very small screens */
                 text-align: center;
@@ -1118,19 +1080,6 @@
         </div>
     </header>
 
-    <!-- Removed Category Navigation -->
-    <!--
-    <div class="category-nav">
-        <div class="container">
-            <ul>
-                <li><a href="#chocolate" class="active"><i class="fas fa-cookie-bite"></i> Chocolate</a></li>
-                <li><a href="#cookies"><i class="fas fa-cookie"></i> Cookies</a></li>
-                <li><a href="#bars"><i class="fas fa-candy-cane"></i> Bars</a></li>
-            </ul>
-        </div>
-    </div>
-    -->
-
     <section class="menu-hero">
         <div class="container">
             <h1>Our Complete Dessert Menu</h1>
@@ -1140,8 +1089,6 @@
     </section>
 
     <main class="container">
-        <!-- Removed Filter Section -->
-
         <div class="menu-container">
             <div class="menu-section" id="chocolate">
                 <div class="menu-category">
@@ -1626,7 +1573,7 @@
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section contact-align">
                     <h3>Contact Info</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Chattu Terrace, Sasson Dock</li>
@@ -1689,25 +1636,6 @@
                 header.classList.remove('scrolled-header');
             }
         });
-
-        // Category Navigation (smooth scroll to section) - Removed JavaScript logic
-        /*
-        const categoryLinks = document.querySelectorAll('.category-nav a');
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                categoryLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                
-                const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const categoryNavHeight = document.querySelector('.category-nav').offsetHeight;
-                const offsetTop = targetElement.offsetTop - (headerHeight + categoryNavHeight);
-                window.scrollTo({ behavior: 'smooth', top: offsetTop });
-            });
-        });
-        */
 
         // Favorite button functionality
         const favoriteBtns = document.querySelectorAll('.favorite-btn');
