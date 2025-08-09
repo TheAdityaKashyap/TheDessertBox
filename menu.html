@@ -262,67 +262,8 @@
             position: relative; /* Ensure content is above animated background */
             z-index: 1;
         }
-
-        /* Promotional Banner */
-        .promo-banner {
-            background: linear-gradient(45deg, var(--gold), #d8b284);
-            color: var(--dark);
-            text-align: center;
-            padding: 25px 0;
-            border-radius: 15px;
-            margin: 40px auto 60px auto;
-            max-width: 900px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-            transform: scale(0.95);
-            opacity: 0;
-            animation: fadeInScale 0.8s forwards;
-        }
-
-        @keyframes fadeInScale {
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .promo-banner h2 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-            position: relative;
-            animation: slideInLeft 1s ease-out forwards;
-        }
-
-        .promo-banner p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            animation: slideInRight 1s ease-out forwards;
-            animation-delay: 0.2s;
-        }
-
-        .promo-banner .cta-button {
-            background: var(--dark);
-            color: var(--gold);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            animation: fadeInUp 1s ease-out forwards;
-            animation-delay: 0.4s;
-        }
-        .promo-banner .cta-button:hover {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--dark);
-        }
-
-        @keyframes slideInLeft {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+        
+        /* Removed Promotional Banner Styles */
 
 
         .menu-container {
@@ -707,6 +648,57 @@
             color: var(--primary);
         }
 
+        /* Review Submission Section in Modal */
+        .quick-view-review-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+        }
+        .quick-view-review-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        .quick-view-review-section .rating-input {
+            margin-bottom: 10px;
+        }
+        .quick-view-review-section .rating-input i {
+            font-size: 1.4rem;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .quick-view-review-section .rating-input i.active,
+        .quick-view-review-section .rating-input i:hover,
+        .quick-view-review-section .rating-input i:hover ~ i {
+            color: var(--gold);
+        }
+        .quick-view-review-section textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 10px;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+        .quick-view-review-section .submit-review-btn {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .quick-view-review-section .submit-review-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
 
         .menu-contact {
             background: linear-gradient(to right, var(--primary), var(--dark));
@@ -920,6 +912,9 @@
             overflow-y: auto;
             transform: translateX(100%);
             transition: var(--transition);
+            display: flex; /* Added flex for loading spinner */
+            flex-direction: column; /* Added flex for loading spinner */
+            justify-content: space-between; /* To push checkout button to bottom */
         }
 
         .cart-modal.active .cart-content {
@@ -948,8 +943,15 @@
             transform: rotate(90deg);
         }
 
+        .cart-info {
+            flex-grow: 1; /* Allows cart items to take available space */
+            display: flex;
+            flex-direction: column;
+        }
+
         .cart-items {
             margin-bottom: 30px;
+            flex-grow: 1; /* Allows cart items to grow and push empty cart msg down */
         }
 
         .cart-item {
@@ -1077,6 +1079,67 @@
             font-size: 1.1rem;
         }
 
+        /* Search Bar Styles */
+        .search-bar-container {
+            margin: 40px auto 60px; /* Adjusted margin to center and give space */
+            max-width: 600px;
+            position: relative;
+            z-index: 1; /* Ensure it's above other elements if needed */
+        }
+
+        .search-bar-container input {
+            width: 100%;
+            padding: 15px 25px;
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: var(--dark);
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-bar-container input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .search-bar-container input::placeholder {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid var(--primary); /* Blue */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none; /* Hidden by default */
+        }
+
+        .loading-spinner.active {
+            display: block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .user-id-display {
+            font-size: 0.85rem;
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(0,0,0,0.1);
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -1122,6 +1185,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .toast.error {
+            background: var(--error);
         }
 
         .toast.show {
@@ -1253,15 +1320,7 @@
             .instagram-link {
                 font-size: 1.2rem;
             }
-            .promo-banner {
-                padding: 20px;
-            }
-            .promo-banner h2 {
-                font-size: 1.8rem;
-            }
-            .promo-banner p {
-                font-size: 1rem;
-            }
+            /* Removed promo banner styles for mobile if any */
             .quick-view-content {
                 width: 95%;
                 padding: 20px;
@@ -1397,16 +1456,12 @@
         </div>
     </section>
 
-    <!-- Promotional Banner Section -->
-    <section class="promo-banner" data-aos="zoom-in" data-aos-delay="200">
-        <div class="container">
-            <h2>🎉 Sweet Deals Await! 🎉</h2>
-            <p>Enjoy 15% off your first order with code: **DESSERTLOVE**</p>
-            <a href="#chocolate-indulgences" class="cta-button">Claim Your Discount!</a>
-        </div>
-    </section>
-
     <main class="container">
+        <!-- Search Bar -->
+        <div class="search-bar-container" data-aos="fade-up" data-aos-delay="100">
+            <input type="text" id="search-input" placeholder="Search desserts by name or description...">
+        </div>
+
         <div class="menu-container">
             <div class="menu-section" id="chocolate-indulgences">
                 <div class="menu-category" data-aos="fade-right" data-aos-duration="800">
@@ -2215,12 +2270,16 @@
                 <h2 id="cart-header-title">Your Dessert Cart</h2>
                 <button class="close-cart" id="close-cart" aria-label="Close shopping cart">&times;</button>
             </div>
-            <div class="cart-items" id="cart-items">
-                <div class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>Your cart is empty</h3>
-                    <p>Add some delicious desserts to your cart!</p>
+            <div class="loading-spinner" id="cart-loading-spinner"></div>
+            <div class="cart-info">
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some delicious desserts to your cart!</p>
+                    </div>
                 </div>
+                <div class="user-id-display" id="user-id-display"></div>
             </div>
             <button class="checkout-btn" id="checkout-btn">
                 <i class="fas fa-shopping-bag"></i> Proceed to Checkout
@@ -2255,6 +2314,19 @@
                         <i class="far fa-heart"></i>
                     </button>
                 </div>
+                <!-- Review Submission Section -->
+                <div class="quick-view-review-section">
+                    <h4>Leave a Review</h4>
+                    <div class="rating-input" id="review-stars">
+                        <i class="far fa-star" data-value="1"></i>
+                        <i class="far fa-star" data-value="2"></i>
+                        <i class="far fa-star" data-value="3"></i>
+                        <i class="far fa-star" data-value="4"></i>
+                        <i class="far fa-star" data-value="5"></i>
+                    </div>
+                    <textarea id="review-text" placeholder="Share your thoughts on this dessert..."></textarea>
+                    <button class="submit-review-btn" id="submit-review-btn">Submit Review</button>
+                </div>
             </div>
         </div>
     </div>
@@ -2263,12 +2335,15 @@
     <!-- Toast Notification -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
-        <span>Item added to cart!</span>
+        <span></span>
     </div>
 
-    <!-- AOS (Animate On Scroll) JavaScript -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
         AOS.init({
             duration: 1000, // values from 0 to 3000, with step 50ms
             once: true,     // whether animation should happen only once - while scrolling down
@@ -2340,11 +2415,11 @@
                     heartIcon.classList.add('far');
                 }
                 btn.setAttribute('aria-pressed', btn.classList.contains('active'));
-                showToastMessage(btn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!');
+                showToastMessage(btn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!', 'success');
             });
         });
 
-        // Cart functionality
+        // Cart functionality and Firebase Integration
         const cartIcon = document.getElementById('cart-icon');
         const cartModal = document.getElementById('cart-modal');
         const closeCart = document.getElementById('close-cart');
@@ -2352,15 +2427,100 @@
         const cartItemsContainer = document.getElementById('cart-items');
         const checkoutBtn = document.getElementById('checkout-btn');
         const toast = document.getElementById('toast');
+        const cartLoadingSpinner = document.getElementById('cart-loading-spinner');
+        const userIdDisplay = document.getElementById('user-id-display');
         
-        let cart = [];
-        
+        let cart = []; // Local cart array, kept in sync with Firestore
+        let app;
+        let db;
+        let auth;
+        let userId; // Will be set after Firebase auth
+        let cartDocRef; // Reference to the Firestore document holding the cart
+
+        // Function to initialize Firebase and authenticate
+        async function initFirebaseAndAuth() {
+            try {
+                // Ensure __firebase_config and __app_id are available from the environment
+                const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+                const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+                if (Object.keys(firebaseConfig).length === 0) {
+                    console.error("Firebase config not found. Cart persistence will not work.");
+                    showToastMessage("Error: Firebase not configured. Cart won't save.", 'error');
+                    return;
+                }
+
+                // Initialize Firebase app
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+
+                // Sign in with custom token if available, otherwise anonymously
+                if (typeof __initial_auth_token !== 'undefined') {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // Listen for auth state changes
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        console.log("Authenticated with Firebase. User ID:", userId);
+                        userIdDisplay.textContent = `User ID: ${userId}`; // Update UI
+                    } else {
+                        // Fallback for unauthenticated or anonymous, though signInAnonymously should give a uid
+                        userId = crypto.randomUUID(); // Generate a random ID if no user is truly signed in
+                        console.log("Signed in anonymously. User ID:", userId);
+                        userIdDisplay.textContent = `User ID: ${userId} (Anonymous)`;
+                    }
+                    setupCartListener(); // Setup listener once authenticated or assigned anonymous ID
+                });
+
+            } catch (error) {
+                console.error("Error initializing Firebase or authenticating:", error);
+                showToastMessage('Error connecting to cart service. Please try again later.', 'error');
+            }
+        }
+
+        // Setup real-time Firestore listener for the user's cart
+        function setupCartListener() {
+            if (!db || !userId) {
+                console.warn("Firestore not initialized or user ID not available for cart listener.");
+                return;
+            }
+            // Firestore path for user's private cart data
+            const cartCollectionPath = `artifacts/${__app_id}/users/${userId}/cart`;
+            cartDocRef = doc(db, cartCollectionPath, 'items'); // Document to store the array of items
+
+            cartLoadingSpinner.classList.add('active'); // Show spinner while loading cart
+
+            onSnapshot(cartDocRef, (docSnap) => {
+                cartLoadingSpinner.classList.remove('active'); // Hide spinner after data received
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    cart = data.items || []; // Ensure 'items' field exists, default to empty array
+                    console.log("Cart data fetched from Firestore:", cart);
+                } else {
+                    cart = []; // Cart document doesn't exist, so cart is empty
+                    console.log("No cart data found in Firestore, initializing empty local cart.");
+                }
+                renderCartUI(); // Always update UI after fetching/updating cart from Firestore
+                updateCartCountUI(); // Update header cart count
+            }, (error) => {
+                console.error("Error getting real-time cart updates:", error);
+                showToastMessage('Error syncing cart. Please refresh.', 'error');
+                cartLoadingSpinner.classList.remove('active'); // Hide spinner on error
+            });
+        }
+
         // Open cart modal
         cartIcon.addEventListener('click', (e) => {
             e.preventDefault();
             cartModal.classList.add('active');
             document.body.classList.add('no-scroll'); // Disable body scroll
             cartModal.setAttribute('aria-hidden', 'false');
+            // Cart UI will be rendered automatically by onSnapshot
         });
         
         // Close cart modal
@@ -2378,16 +2538,16 @@
             }
         });
 
-        // Add to cart logic (updated to handle quantity inputs)
+        // Add to cart logic (updated to handle quantity inputs and Firestore persistence)
         document.querySelectorAll('.menu-item .add-to-cart').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+            btn.addEventListener('click', async (e) => {
                 e.preventDefault();
                 e.stopPropagation(); // Prevent quick view modal from opening
                 const itemId = btn.getAttribute('data-id');
                 const itemQuantityDisplay = btn.closest('.item-actions').querySelector('.item-quantity-display');
                 const quantity = parseInt(itemQuantityDisplay.textContent);
                 
-                addItemToCart(itemId, quantity);
+                await addItemToCart(itemId, quantity);
                 itemQuantityDisplay.textContent = 1; // Reset quantity display after adding
             });
         });
@@ -2414,14 +2574,23 @@
             });
         });
         
-        function addItemToCart(id, quantity) {
-            const itemData = menuItemsData.find(item => item.id === id);
-            if (!itemData) return;
+        // Adds item to local cart and then persists to Firestore
+        async function addItemToCart(id, quantity) {
+            if (!cartDocRef) {
+                showToastMessage("Cart service not ready. Please wait.", 'error');
+                return;
+            }
 
-            const existingItem = cart.find(item => item.id === id);
+            const itemData = menuItemsData.find(item => item.id === id);
+            if (!itemData) {
+                showToastMessage("Error: Item not found.", 'error');
+                return;
+            }
+
+            const existingItemIndex = cart.findIndex(item => item.id === id);
             
-            if (existingItem) {
-                existingItem.quantity += quantity;
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity += quantity;
             } else {
                 cart.push({
                     id: itemData.id,
@@ -2431,29 +2600,57 @@
                 });
             }
             
-            updateCart();
-            showToastMessage(`'${itemData.name}' added to cart!`);
+            showToastMessage(`'${itemData.name}' added to cart!`, 'success');
 
             cartCount.classList.add('pulse-animation');
             setTimeout(() => {
                 cartCount.classList.remove('pulse-animation');
             }, 400); 
+
+            await saveCartToFirestore(); // Persist the updated cart
+        }
+
+        // Saves the current local cart array to Firestore
+        async function saveCartToFirestore() {
+            if (!cartDocRef) {
+                console.error("Cart document reference not available. Cannot save to Firestore.");
+                return;
+            }
+            try {
+                // Exponential backoff for retries
+                for (let i = 0; i < 3; i++) { // Max 3 retries
+                    try {
+                        await setDoc(cartDocRef, { items: cart });
+                        console.log("Cart saved to Firestore.");
+                        return; // Success, exit loop
+                    } catch (error) {
+                        if (error.code === 'unavailable' || error.code === 'resource-exhausted') {
+                            const delay = Math.pow(2, i) * 1000; // 1s, 2s, 4s
+                            console.warn(`Firestore write failed, retrying in ${delay / 1000}s...`);
+                            await new Promise(res => setTimeout(res, delay));
+                        } else {
+                            throw error; // Re-throw if not a retriable error
+                        }
+                    }
+                }
+                throw new Error("Failed to save cart to Firestore after multiple retries.");
+            } catch (error) {
+                console.error("Error saving cart to Firestore:", error);
+                showToastMessage('Error saving cart. Please try again.', 'error');
+            }
         }
 
         // Show toast notification
-        function showToastMessage(message) {
+        function showToastMessage(message, type = 'success') {
             toast.querySelector('span').textContent = message;
-            toast.classList.add('show');
+            toast.className = `toast show ${type}`; // Add type class
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
         }
         
-        // Update cart UI
-        function updateCart() {
-            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            
+        // Update cart UI based on the `cart` array (now called by onSnapshot)
+        function renderCartUI() {
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = `
                     <div class="empty-cart">
@@ -2490,29 +2687,39 @@
             
             // Re-attach event listeners for dynamically added buttons in cart
             cartItemsContainer.querySelectorAll('.quantity-btn.minus').forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', async () => {
                     const id = btn.getAttribute('data-id');
-                    updateQuantityInCart(id, -1);
+                    await updateQuantityInCart(id, -1);
                 });
             });
             
             cartItemsContainer.querySelectorAll('.quantity-btn.plus').forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', async () => {
                     const id = btn.getAttribute('data-id');
-                    updateQuantityInCart(id, 1);
+                    await updateQuantityInCart(id, 1);
                 });
             });
             
             cartItemsContainer.querySelectorAll('.remove-item').forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', async () => {
                     const id = btn.getAttribute('data-id');
-                    removeItemFromCart(id);
+                    await removeItemFromCart(id);
                 });
             });
         }
+
+        // Updates header cart count UI only
+        function updateCartCountUI() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
         
-        // Update item quantity in cart
-        function updateQuantityInCart(id, change) {
+        // Update item quantity in cart and persist to Firestore
+        async function updateQuantityInCart(id, change) {
+            if (!cartDocRef) {
+                showToastMessage("Cart service not ready. Please wait.", 'error');
+                return;
+            }
             const item = cart.find(item => item.id === id);
             if (item) {
                 item.quantity += change;
@@ -2521,31 +2728,29 @@
                     cart = cart.filter(item => item.id !== id);
                 }
                 
-                updateCart();
+                await saveCartToFirestore(); // Persist the updated cart
             }
         }
         
-        // Remove item from cart
-        function removeItemFromCart(id) {
+        // Remove item from cart and persist to Firestore
+        async function removeItemFromCart(id) {
+            if (!cartDocRef) {
+                showToastMessage("Cart service not ready. Please wait.", 'error');
+                return;
+            }
             cart = cart.filter(item => item.id !== id);
-            updateCart();
-        }
-        
-        // Get image by item name (for demo purposes) - now uses data object
-        function getImageByItemName(name) {
-             const item = menuItemsData.find(dataItem => dataItem.name === name);
-             return item ? item.img : 'FinalLogoTheDessertBox.png'; // Fallback image
+            await saveCartToFirestore(); // Persist the updated cart
         }
         
         // Checkout button
-        checkoutBtn.addEventListener('click', () => {
+        checkoutBtn.addEventListener('click', async () => {
             if (cart.length === 0) {
-                showToastMessage('Your cart is empty!');
+                showToastMessage('Your cart is empty!', 'error');
                 return;
             }
-            showToastMessage('Proceeding to checkout!');
-            cart = [];
-            updateCart();
+            showToastMessage('Proceeding to checkout!', 'success');
+            cart = []; // Clear local cart
+            await saveCartToFirestore(); // Clear cart in Firestore
             cartModal.classList.remove('active');
             document.body.classList.remove('no-scroll');
             cartModal.setAttribute('aria-hidden', 'true');
@@ -2564,8 +2769,12 @@
         const quickViewQuantityPlus = document.getElementById('quick-view-quantity-plus');
         const quickViewAddToCartBtn = document.getElementById('quick-view-add-to-cart');
         const quickViewFavoriteBtn = document.getElementById('quick-view-favorite-btn');
+        const reviewStarsInput = document.getElementById('review-stars');
+        const reviewTextInput = document.getElementById('review-text');
+        const submitReviewBtn = document.getElementById('submit-review-btn');
 
         let currentQuickViewItemId = null; // To store the ID of the item currently in quick view
+        let currentReviewRating = 0; // To store the selected rating for review
 
         // Open Quick View Modal
         document.querySelectorAll('.menu-item .item-name-link').forEach(link => {
@@ -2620,6 +2829,11 @@
 
                     currentQuickViewItemId = itemData.id; // Store for quantity updates
 
+                    // Reset review section
+                    currentReviewRating = 0;
+                    reviewTextInput.value = '';
+                    updateReviewStarsUI(0);
+
                     quickViewModal.classList.add('active');
                     document.body.classList.add('no-scroll'); // Disable body scroll
                     quickViewModal.setAttribute('aria-hidden', 'false');
@@ -2655,10 +2869,10 @@
         });
 
         // Add to Cart from Quick View Modal
-        quickViewAddToCartBtn.addEventListener('click', () => {
+        quickViewAddToCartBtn.addEventListener('click', async () => {
             const id = quickViewAddToCartBtn.getAttribute('data-id');
             const quantity = parseInt(quickViewQuantityDisplay.textContent);
-            addItemToCart(id, quantity);
+            await addItemToCart(id, quantity);
             quickViewModal.classList.remove('active'); // Close modal after adding
             document.body.classList.remove('no-scroll');
             quickViewModal.setAttribute('aria-hidden', 'true');
@@ -2694,11 +2908,107 @@
                 }
                 mainMenuItemFavoriteBtn.setAttribute('aria-pressed', mainMenuItemFavoriteBtn.classList.contains('active'));
             }
-            showToastMessage(quickViewFavoriteBtn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!');
+            showToastMessage(quickViewFavoriteBtn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!', 'success');
+        });
+
+        // Review star rating functionality
+        reviewStarsInput.addEventListener('click', (e) => {
+            if (e.target.tagName === 'I') {
+                const value = parseInt(e.target.dataset.value);
+                currentReviewRating = value;
+                updateReviewStarsUI(value);
+            }
+        });
+
+        reviewStarsInput.addEventListener('mouseover', (e) => {
+            if (e.target.tagName === 'I') {
+                const value = parseInt(e.target.dataset.value);
+                updateReviewStarsUI(value, true); // Highlight on hover
+            }
+        });
+
+        reviewStarsInput.addEventListener('mouseout', () => {
+            updateReviewStarsUI(currentReviewRating); // Revert to selected rating on mouseout
+        });
+
+        function updateReviewStarsUI(rating, isHover = false) {
+            const stars = reviewStarsInput.querySelectorAll('i');
+            stars.forEach(star => {
+                const starValue = parseInt(star.dataset.value);
+                if (isHover) {
+                    star.classList.toggle('fas', starValue <= rating);
+                    star.classList.toggle('far', starValue > rating);
+                } else {
+                    star.classList.toggle('fas', starValue <= rating);
+                    star.classList.toggle('far', starValue > rating);
+                    star.classList.toggle('active', starValue <= rating); // Add 'active' class for persistence
+                }
+            });
+        }
+
+        // Submit review button functionality (conceptual for now)
+        submitReviewBtn.addEventListener('click', () => {
+            const reviewText = reviewTextInput.value.trim();
+            if (currentQuickViewItemId && currentReviewRating > 0 && reviewText) {
+                console.log(`Submitting review for item ${currentQuickViewItemId}:`);
+                console.log(`Rating: ${currentReviewRating} stars`);
+                console.log(`Review: "${reviewText}"`);
+                // In a real application, you would send this data to a backend (e.g., Firestore)
+                // For example:
+                /*
+                try {
+                    const reviewsCollectionRef = collection(db, `artifacts/${__app_id}/items/${currentQuickViewItemId}/reviews`);
+                    await addDoc(reviewsCollectionRef, {
+                        userId: userId, // Current authenticated user ID
+                        rating: currentReviewRating,
+                        reviewText: reviewText,
+                        timestamp: new Date()
+                    });
+                    showToastMessage('Review submitted successfully!', 'success');
+                    reviewTextInput.value = ''; // Clear form
+                    currentReviewRating = 0;
+                    updateReviewStarsUI(0);
+                } catch (error) {
+                    console.error("Error submitting review:", error);
+                    showToastMessage('Failed to submit review. Please try again.', 'error');
+                }
+                */
+                showToastMessage('Review submitted! (Backend integration needed)', 'success');
+                reviewTextInput.value = ''; // Clear form
+                currentReviewRating = 0;
+                updateReviewStarsUI(0);
+                quickViewModal.classList.remove('active'); // Close modal after submission
+                document.body.classList.remove('no-scroll');
+                quickViewModal.setAttribute('aria-hidden', 'true');
+            } else {
+                showToastMessage('Please select a rating and write your review.', 'error');
+            }
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            menuItems.forEach(item => {
+                const itemName = item.querySelector('.item-name a').textContent.toLowerCase();
+                const itemDescription = item.querySelector('.item-description').textContent.toLowerCase();
+
+                if (itemName.includes(searchTerm) || itemDescription.includes(searchTerm)) {
+                    item.style.display = 'flex'; // Show the item
+                    // Re-apply AOS animation when shown
+                    item.classList.remove('aos-animate');
+                    void item.offsetWidth; // Trigger reflow
+                    item.classList.add('aos-animate');
+                } else {
+                    item.style.display = 'none'; // Hide the item
+                }
+            });
         });
         
-        // Initialize cart on page load
-        updateCart();
+        // Initialize Firebase and Auth on window load
+        window.addEventListener('load', initFirebaseAndAuth);
     </script>
 </body>
 </html>
