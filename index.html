@@ -34,7 +34,7 @@
             color: var(--text);
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            padding-top: 80px; /* Adjusted padding-top for thinner header */
+            padding-top: 80px; /* Adjusted padding-top for thinner header on desktop */
             overflow-x: hidden;
         }
 
@@ -207,10 +207,11 @@
             font-weight: bold;
         }
 
-        /* Category Navigation */
+        /* Category Navigation - Removed as per request */
+        /*
         .category-nav {
             position: sticky;
-            top: 80px; /* Adjusted sticky position for thinner header */
+            top: 80px;
             background: var(--white);
             padding: 15px 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -220,7 +221,7 @@
         }
 
         .scrolled-header ~ .category-nav {
-            top: 60px; /* Adjusted sticky position when scrolled */
+            top: 60px;
         }
 
         .category-nav ul {
@@ -242,20 +243,21 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Added subtle shadow */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .category-nav li a:hover,
         .category-nav li a.active {
             background: var(--primary);
             color: var(--white);
-            transform: translateY(-3px); /* Added subtle lift on hover/active */
+            transform: translateY(-3px);
             box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
 
         .category-nav li a i {
             font-size: 1.2rem;
         }
+        */
 
         /* Menu Page Styles */
         .menu-hero {
@@ -882,6 +884,9 @@
 
         /* Responsive Design */
         @media (max-width: 992px) {
+            body {
+                padding-top: 70px; /* Adjusted padding-top for thinner header on tablets */
+            }
             .menu-hero h1 {
                 font-size: 3rem;
             }
@@ -912,12 +917,8 @@
             .logo-tagline {
                 font-size: 0.8rem;
             }
-            .category-nav {
-                top: 70px; /* Adjust sticky top for tablets */
-            }
-            .scrolled-header ~ .category-nav {
-                top: 50px; /* Adjust sticky top for tablets when scrolled */
-            }
+            /* .category-nav { top: 70px; } */
+            /* .scrolled-header ~ .category-nav { top: 50px; } */
         }
 
         @media (max-width: 768px) {
@@ -990,12 +991,8 @@
             .logo-tagline {
                 font-size: 0.7rem;
             }
-            .category-nav {
-                top: 60px; /* Adjust sticky top for mobile */
-            }
-            .scrolled-header ~ .category-nav {
-                top: 40px; /* Adjust sticky top for mobile when scrolled */
-            }
+            /* .category-nav { top: 60px; } */
+            /* .scrolled-header ~ .category-nav { top: 40px; } */
             .menu-contact {
                 padding: 30px; /* Reduced padding on contact for smaller screens */
             }
@@ -1066,12 +1063,8 @@
             .logo-tagline {
                 display: none; /* Hide tagline on very small screens to save space */
             }
-            .category-nav {
-                top: 50px; /* Further adjust sticky top for very small mobile */
-            }
-            .scrolled-header ~ .category-nav {
-                top: 35px; /* Further adjust sticky top for very small mobile when scrolled */
-            }
+            /* .category-nav { top: 50px; } */
+            /* .scrolled-header ~ .category-nav { top: 35px; } */
             .footer-section {
                 min-width: 100%; /* Stack footer columns on very small screens */
                 text-align: center;
@@ -1117,6 +1110,8 @@
         </div>
     </header>
 
+    <!-- Removed Category Navigation -->
+    <!--
     <div class="category-nav">
         <div class="container">
             <ul>
@@ -1126,6 +1121,7 @@
             </ul>
         </div>
     </div>
+    -->
 
     <section class="menu-hero">
         <div class="container">
@@ -1686,7 +1682,8 @@
             }
         });
 
-        // Category Navigation (smooth scroll to section)
+        // Category Navigation (smooth scroll to section) - Removed JavaScript logic
+        /*
         const categoryLinks = document.querySelectorAll('.category-nav a');
         categoryLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -1696,13 +1693,13 @@
                 
                 const targetId = link.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                // Adjust for fixed header height
                 const headerHeight = document.querySelector('header').offsetHeight;
                 const categoryNavHeight = document.querySelector('.category-nav').offsetHeight;
                 const offsetTop = targetElement.offsetTop - (headerHeight + categoryNavHeight);
                 window.scrollTo({ behavior: 'smooth', top: offsetTop });
             });
         });
+        */
 
         // Favorite button functionality
         const favoriteBtns = document.querySelectorAll('.favorite-btn');
@@ -1899,26 +1896,6 @@
             cartModal.classList.remove('active');
             cartModal.setAttribute('aria-hidden', 'true');
         });
-        
-        // Removed Filter functionality
-        // const filterBtns = document.querySelectorAll('.filter-btn');
-        // const resetFiltersBtn = document.getElementById('reset-filters');
-        
-        // filterBtns.forEach(btn => {
-        //     btn.addEventListener('click', () => {
-        //         filterBtns.forEach(b => b.classList.remove('active'));
-        //         btn.classList.add('active');
-                
-        //         const filterType = btn.textContent.trim();
-        //         showToastMessage(`Filtered by: ${filterType}`);
-        //     });
-        // });
-        
-        // resetFiltersBtn.addEventListener('click', () => {
-        //     filterBtns.forEach(b => b.classList.remove('active'));
-        //     filterBtns[0].classList.add('active');
-        //     showToastMessage('Filters reset');
-        // });
         
         // Initialize cart on page load
         updateCart();
