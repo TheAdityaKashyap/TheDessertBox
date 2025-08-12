@@ -263,9 +263,6 @@
             z-index: 1;
         }
         
-        /* Removed Promotional Banner Styles */
-
-
         .menu-container {
             background: var(--white);
             border-radius: 20px;
@@ -911,7 +908,7 @@
             padding: 30px;
             overflow-y: auto;
             transform: translateX(100%);
-            transition: var(--transition);
+            transition: transform 0.3s ease;
             display: flex; /* Added flex for loading spinner */
             flex-direction: column; /* Added flex for loading spinner */
             justify-content: space-between; /* To push checkout button to bottom */
@@ -1421,7 +1418,7 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="FinalLogoTheDessertBox.png" alt="The Dessert Box Logo">
+                <img src="https://via.placeholder.com/60" alt="The Dessert Box Logo">
                 <div>
                     <div class="logo-text">The Dessert Box</div>
                     <div class="logo-tagline">PREMIUM DESSERTS</div>
@@ -1469,329 +1466,7 @@
                 </div>
                 
                 <div class="menu-items">
-                    <!-- Item 1: Coffee Cake -->
-                    <div class="menu-item" data-id="1" data-aos="fade-up" data-aos-delay="100">
-                        <span class="item-tag">Chef's Pick</span>
-                        <div class="item-image">
-                            <img src="WalnutBrownie.jpeg" alt="Coffee Cake" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Coffee Cake</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                            </div>
-                            <p class="item-description">Rich coffee-infused chocolate delight, a perfect balance of bitter and sweet. "Absolutely divine! The coffee kick is just right."</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Vegan</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="1">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="1">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="1" data-name="Coffee Cake">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 2: Almond Chocolate Mocha Cake -->
-                    <div class="menu-item" data-id="2" data-aos="fade-up" data-aos-delay="200">
-                        <div class="item-image">
-                            <img src="MochaDatesJowarCake.jpeg" alt="Almond Chocolate Mocha Cake" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Almond Chocolate Mocha Cake</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Decadent mocha layers with almond crunch, a harmonious blend of coffee, chocolate, and nutty goodness. "My absolute favorite! So rich!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="2">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="2">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="2" data-name="Almond Chocolate Mocha Cake">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 3: Ragi Chocolate Cake -->
-                    <div class="menu-item" data-id="3" data-aos="fade-up" data-aos-delay="300">
-                        <div class="item-image">
-                            <img src="RagiChocolateMuffins.jpeg" alt="Ragi Chocolate Cake" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Ragi Chocolate Cake</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)
-                            </div>
-                            <p class="item-description">Healthy indulgence with finger millet, surprisingly delicious and wholesome. "Never thought healthy could taste this good!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="3">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="3">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="3" data-name="Ragi Chocolate Cake">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 4: Wholewheat Blueberry Crumble -->
-                    <div class="menu-item" data-id="4" data-aos="fade-up" data-aos-delay="400">
-                        <span class="item-tag">New Item</span>
-                        <div class="item-image">
-                            <img src="BlueberryCake.jpeg" alt="Wholewheat Blueberry Crumble" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Wholewheat Blueberry Crumble</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                            </div>
-                            <p class="item-description">With blueberry chia jam topping, a rustic and flavorful dessert. "Fresh and fruity, a must-try!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="4">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="4">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="4" data-name="Wholewheat Blueberry Crumble">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 5: Chocolate Coconut Bounty Cake -->
-                    <div class="menu-item" data-id="5" data-aos="fade-up" data-aos-delay="500">
-                        <div class="item-image">
-                            <img src="ChocolateFudgeBites.jpeg" alt="Chocolate Coconut Bounty Cake" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Chocolate Coconut Bounty Cake</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Tropical coconut-chocolate fusion, tastes like a dream vacation. "So rich and satisfying!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Vegan</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="5">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="5">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="5" data-name="Chocolate Coconut Bounty Cake">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 6: Chocolate Mousse Cake -->
-                    <div class="menu-item" data-id="6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="item-image">
-                            <img src="MousseCake.png" alt="Chocolate Mousse Cake" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Chocolate Mousse Cake</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)
-                            </div>
-                            <p class="item-description">Light, airy chocolate perfection that melts in your mouth. "A heavenly cloud of chocolate!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="6">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="6">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="6" data-name="Chocolate Mousse Cake">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Item 7: Red Velvet Cupcakes -->
-                    <div class="menu-item" data-id="7" data-aos="fade-up" data-aos-delay="700">
-                        <span class="item-tag">Most Popular</span>
-                        <div class="item-image">
-                            <img src="CheeseCake.jpeg" alt="Red Velvet Cupcakes" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Red Velvet Cupcakes</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Classic red velvet with tangy cream cheese frosting, a timeless favorite. "Simply irresistible!"</p>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="7">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="7">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="7" data-name="Red Velvet Cupcakes">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 8: Chocolate Fudge Brownies -->
-                    <div class="menu-item" data-id="8" data-aos="fade-up" data-aos-delay="800">
-                        <div class="item-image">
-                            <img src="WalnutBrownie.jpeg" alt="Chocolate Fudge Brownies" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Chocolate Fudge Brownies</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)
-                            </div>
-                            <p class="item-description">Dense, rich, and intensely chocolatey with your choice of walnut or almond topping. "Best brownies ever!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Vegan</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="8">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="8">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="8" data-name="Chocolate Fudge Brownies">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 9: Ragi Chocolate Tart -->
-                    <div class="menu-item" data-id="9" data-aos="fade-up" data-aos-delay="900">
-                        <div class="item-image">
-                            <img src="RagiChocolateTart.jpeg" alt="Ragi Chocolate Tart" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Ragi Chocolate Tart</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3.5)
-                            </div>
-                            <p class="item-description">Healthy tart with rich chocolate filling, a guilt-free pleasure. "Surprisingly delicious for being healthy."</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="9">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="9">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="9" data-name="Ragi Chocolate Tart">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 10: Lava Cake -->
-                    <div class="menu-item" data-id="10" data-aos="fade-up" data-aos-delay="1000">
-                        <div class="item-image">
-                            <img src="LavaCake.png" alt="Lava Cake" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Lava Cake</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Warm molten chocolate center, an explosion of flavor in every spoonful. "Pure bliss for chocolate lovers!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="10">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="10">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="10" data-name="Lava Cake">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Items will be generated by JavaScript -->
                 </div>
             </div>
             
@@ -1801,230 +1476,7 @@
                 </div>
                 
                 <div class="menu-items">
-                    <!-- Item 11: Oats Raisins Cookies -->
-                    <div class="menu-item" data-id="11" data-aos="fade-up" data-aos-delay="100">
-                        <div class="item-image">
-                            <img src="OatsAndRaisenCookies.jpeg" alt="Oats Raisins Cookies" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Oats Raisins Cookies</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                            </div>
-                            <p class="item-description">Chewy oatmeal cookies with plump raisins, a comforting classic. "Perfectly soft and wholesome."</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="11">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="11">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="11" data-name="Oats Raisins Cookies">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 12: Choco Chip Cookies -->
-                    <div class="menu-item" data-id="12" data-aos="fade-up" data-aos-delay="200">
-                        <span class="item-tag">Most Popular</span>
-                        <div class="item-image">
-                            <img src="Brookies.jpeg" alt="Choco Chip Cookies" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Choco Chip Cookies</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Classic chocolate chip perfection, crispy edges with a gooey center. "My kids can't get enough!"</p>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="12">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="12">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="12" data-name="Choco Chip Cookies">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 13: Almond Thumbprint Cookies -->
-                    <div class="menu-item" data-id="13" data-aos="fade-up" data-aos-delay="300">
-                        <div class="item-image">
-                            <img src="AlmondThumbprintCookies.jpeg" alt="Almond Thumbprint Cookies" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Almond Thumbprint Cookies</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)
-                            </div>
-                            <p class="item-description">Buttery almond cookies with a sweet jam center, a delightful treat. "So delicate and flavorful!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="13">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="13">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="13" data-name="Almond Thumbprint Cookies">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 14: Brookies -->
-                    <div class="menu-item" data-id="14" data-aos="fade-up" data-aos-delay="400">
-                        <div class="item-image">
-                            <img src="Brookies.jpeg" alt="Brookies" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Brookies</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Brownie + cookie hybrid treat, the best of both worlds! "Addictive, can't stop at one!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Vegan</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="14">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="14">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="14" data-name="Brookies">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 15: Edible Cookie Dough Bites -->
-                    <div class="menu-item" data-id="15" data-aos="fade-up" data-aos-delay="500">
-                        <span class="item-tag">Chef's Pick</span>
-                        <div class="item-image">
-                            <img src="ChocolateFudgeBites.jpeg" alt="Edible Cookie Dough Bites" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Edible Cookie Dough Bites</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                            </div>
-                            <p class="item-description">Safe-to-eat cookie dough indulgence, perfect for a quick sweet fix. "Love these for a movie night!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="15">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="15">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="15" data-name="Edible Cookie Dough Bites">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 16: Mix Seed Cookies -->
-                    <div class="menu-item" data-id="16" data-aos="fade-up" data-aos-delay="600">
-                        <div class="item-image">
-                            <img src="OatsAndRaisenCookies.jpeg" alt="Mix Seed Cookies" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Mix Seed Cookies</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3.5)
-                            </div>
-                            <p class="item-description">Nutritious seeds in every bite, a healthy and crunchy snack. "Great for a guilt-free snack."</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Vegan</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="16">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="16">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="16" data-name="Mix Seed Cookies">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 17: Nankhatai -->
-                    <div class="menu-item" data-id="17" data-aos="fade-up" data-aos-delay="700">
-                        <div class="item-image">
-                            <img src="Nankhatai.jpeg" alt="Nankhatai" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Nankhatai</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Traditional Indian shortbread cookies, melt-in-your-mouth goodness. "Takes me back to childhood!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="17">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="17">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="17" data-name="Nankhatai">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Items will be generated by JavaScript -->
                 </div>
             </div>
             
@@ -2034,104 +1486,7 @@
                 </div>
                 
                 <div class="menu-items">
-                    <!-- Item 18: Rakhi Special Surprise Laddos -->
-                    <div class="menu-item" data-id="18" data-aos="fade-up" data-aos-delay="100">
-                        <span class="item-tag">Limited Edition</span>
-                        <div class="item-image">
-                            <img src="FinalLogoTheDessertBox.png" alt="Rakhi Special Laddos" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Rakhi Special Surprise Laddos</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                            </div>
-                            <p class="item-description">Festive sweet surprise for Raksha Bandhan, a delightful Indian sweet. "Perfect for celebrations!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="18">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="18">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="18" data-name="Rakhi Special Laddos">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 19: Chocolate Protein Bars -->
-                    <div class="menu-item" data-id="19" data-aos="fade-up" data-aos-delay="200">
-                        <div class="item-image">
-                            <img src="ChocolateProteinBar.png" alt="Chocolate Protein Bars" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Chocolate Protein Bars</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)
-                            </div>
-                            <p class="item-description">Energy-boosting nutritious bars, perfect for a healthy snack on the go. "My go-to post-workout treat!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Vegan</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="19">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="19">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="19" data-name="Chocolate Protein Bars">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 20: Healthy Twix Bar -->
-                    <div class="menu-item" data-id="20" data-aos="fade-up" data-aos-delay="300">
-                        <div class="item-image">
-                            <img src="TwixBar.jpeg" alt="Healthy Twix Bar" loading="lazy">
-                        </div>
-                        <div class="item-details">
-                            <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Healthy Twix Bar</a></h3>
-                            <div class="star-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <p class="item-description">Guilt-free version of the classic Twix, with a crunchy base and luscious caramel. "Tastes just like the real thing, but better!"</p>
-                            <div class="dietary-tags">
-                                <span class="dietary-tag">Gluten-Free</span>
-                                <span class="dietary-tag">Low Sugar</span>
-                            </div>
-                            <div class="item-actions">
-                                <div class="add-to-cart-group">
-                                    <div class="quantity-input-group">
-                                        <button class="quantity-minus" data-id="20">-</button>
-                                        <span class="item-quantity-display">1</span>
-                                        <button class="quantity-plus" data-id="20">+</button>
-                                    </div>
-                                    <button class="add-to-cart" data-id="20" data-name="Healthy Twix Bar">
-                                        <i class="fas fa-plus"></i> Add
-                                    </button>
-                                </div>
-                                <button class="favorite-btn" aria-label="Add to favorites">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Items will be generated by JavaScript -->
                 </div>
             </div>
             
@@ -2144,71 +1499,7 @@
             </div>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-style: italic; color: #777;">Discover a selection of desserts personally recommended by our head chef, guaranteed to delight your palate.</p>
             <div class="menu-items">
-                <!-- Example Chef's Pick Items (can be duplicated/modified from above) -->
-                <div class="menu-item" data-id="21" data-aos="fade-up" data-aos-delay="100">
-                    <span class="item-tag">Chef's Pick</span>
-                    <div class="item-image">
-                        <img src="MochaDatesJowarCake.jpeg" alt="Chef's Special Mocha Almond" loading="lazy">
-                    </div>
-                    <div class="item-details">
-                        <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Chef's Special Mocha Almond Cake</a></h3>
-                        <div class="star-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                        </div>
-                        <p class="item-description">A signature creation, combining rich mocha, crunchy almonds, and a secret twist. "Unforgettable! My new obsession."</p>
-                        <div class="dietary-tags">
-                            <span class="dietary-tag">Gluten-Free</span>
-                        </div>
-                        <div class="item-actions">
-                            <div class="add-to-cart-group">
-                                <div class="quantity-input-group">
-                                    <button class="quantity-minus" data-id="21">-</button>
-                                    <span class="item-quantity-display">1</span>
-                                    <button class="quantity-plus" data-id="21">+</button>
-                                </div>
-                                <button class="add-to-cart" data-id="21" data-name="Chef's Special Mocha Almond Cake">
-                                    <i class="fas fa-plus"></i> Add
-                                </button>
-                            </div>
-                            <button class="favorite-btn" aria-label="Add to favorites">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="menu-item" data-id="22" data-aos="fade-up" data-aos-delay="200">
-                    <span class="item-tag">Chef's Pick</span>
-                    <div class="item-image">
-                        <img src="Nankhatai.jpeg" alt="Artisanal Nankhatai Duo" loading="lazy">
-                    </div>
-                    <div class="item-details">
-                        <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">Artisanal Nankhatai Duo Pack</a></h3>
-                        <div class="star-rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                        </div>
-                        <p class="item-description">Two exquisite variations of our classic Nankhatai, a delightful crunchy experience. "A traditional delight reinvented!"</p>
-                        <div class="dietary-tags">
-                            <span class="dietary-tag">Low Sugar</span>
-                        </div>
-                        <div class="item-actions">
-                            <div class="add-to-cart-group">
-                                <div class="quantity-input-group">
-                                    <button class="quantity-minus" data-id="22">-</button>
-                                    <span class="item-quantity-display">1</span>
-                                    <button class="quantity-plus" data-id="22">+</button>
-                                </div>
-                                <button class="add-to-cart" data-id="22" data-name="Artisanal Nankhatai Duo Pack">
-                                    <i class="fas fa-plus"></i> Add
-                                </button>
-                                </button>
-                            </div>
-                            <button class="favorite-btn" aria-label="Add to favorites">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <!-- Items will be generated by JavaScript -->
             </div>
         </section>
 
@@ -2271,7 +1562,6 @@
                 <h2 id="cart-header-title">Your Dessert Cart</h2>
                 <button class="close-cart" id="close-cart" aria-label="Close shopping cart">&times;</button>
             </div>
-            <div class="loading-spinner" id="cart-loading-spinner"></div>
             <div class="cart-info">
                 <div class="cart-items" id="cart-items">
                     <div class="empty-cart">
@@ -2280,7 +1570,6 @@
                         <p>Add some delicious desserts to your cart!</p>
                     </div>
                 </div>
-                <div class="user-id-display" id="user-id-display"></div>
             </div>
             <button class="checkout-btn" id="checkout-btn">
                 <i class="fas fa-shopping-bag"></i> Proceed to Checkout
@@ -2341,90 +1630,53 @@
 
     <!-- AOS (Animate On Scroll) JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Firebase SDKs -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, onSnapshot, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Initialize AOS after the script is loaded
+    
+    <script>
+        // Initialize AOS
         AOS.init({
-            duration: 1000, // values from 0 to 3000, with step 50ms
-            once: true,     // whether animation should happen only once - while scrolling down
-            mirror: false,  // whether elements should animate out while scrolling past them
-            anchorPlacement: 'top-bottom', // defines which position of the element should trigger the animation
+            duration: 1000,
+            once: true,
+            mirror: false,
+            anchorPlacement: 'top-bottom'
         });
 
-        // Data for menu items (including full descriptions and ratings)
+        // Data for menu items
         const menuItemsData = [
-            { id: '1', name: 'Coffee Cake', img: 'WalnutBrownie.jpeg', description: 'Rich coffee-infused chocolate delight, a perfect balance of bitter and sweet. "Absolutely divine! The coffee kick is just right."', dietary: ['Vegan', 'Low Sugar'], stars: 4.0, tags: ['Chef\'s Pick'] },
-            { id: '2', name: 'Almond Chocolate Mocha Cake', img: 'MochaDatesJowarCake.jpeg', description: 'Decadent mocha layers with almond crunch, a harmonious blend of coffee, chocolate, and nutty goodness. "My absolute favorite! So rich!"', dietary: ['Gluten-Free'], stars: 5.0, tags: [] },
-            { id: '3', name: 'Ragi Chocolate Cake', img: 'RagiChocolateMuffins.jpeg', description: 'Healthy indulgence with finger millet, surprisingly delicious and wholesome. "Never thought healthy could taste this good!"', dietary: ['Gluten-Free', 'Low Sugar'], stars: 4.5, tags: [] },
-            { id: '4', name: 'Wholewheat Blueberry Crumble', img: 'BlueberryCake.jpeg', description: 'With blueberry chia jam topping, a rustic and flavorful dessert. "Fresh and fruity, a must-try!"', dietary: ['Low Sugar'], stars: 4.0, tags: ['New Item'] },
-            { id: '5', name: 'Chocolate Coconut Bounty Cake', img: 'ChocolateFudgeBites.jpeg', description: 'Tropical coconut-chocolate fusion, tastes like a dream vacation. "So rich and satisfying!"', dietary: ['Vegan'], stars: 5.0, tags: [] },
-            { id: '6', name: 'Chocolate Mousse Cake', img: 'MousseCake.png', description: 'Light, airy chocolate perfection that melts in your mouth. "A heavenly cloud of chocolate!"', dietary: ['Gluten-Free'], stars: 4.5, tags: [] },
-            { id: '7', name: 'Red Velvet Cupcakes', img: 'CheeseCake.jpeg', description: 'Classic red velvet with tangy cream cheese frosting, a timeless favorite. "Simply irresistible!"', dietary: [], stars: 5.0, tags: ['Most Popular'] },
-            { id: '8', name: 'Chocolate Fudge Brownies', img: 'WalnutBrownie.jpeg', description: 'Dense, rich, and intensely chocolatey with your choice of walnut or almond topping. "Best brownies ever!"', dietary: ['Vegan', 'Low Sugar'], stars: 4.5, tags: [] },
-            { id: '9', name: 'Ragi Chocolate Tart', img: 'RagiChocolateTart.jpeg', description: 'Healthy tart with rich chocolate filling, a guilt-free pleasure. "Surprisingly delicious for being healthy."', dietary: ['Gluten-Free', 'Low Sugar'], stars: 3.5, tags: [] },
-            { id: '10', name: 'Lava Cake', img: 'LavaCake.png', description: 'Warm molten chocolate center, an explosion of flavor in every spoonful. "Pure bliss for chocolate lovers!"', dietary: ['Gluten-Free'], stars: 5.0, tags: [] },
-            { id: '11', name: 'Oats Raisins Cookies', img: 'OatsAndRaisenCookies.jpeg', description: 'Chewy oatmeal cookies with plump raisins, a comforting classic. "Perfectly soft and wholesome."', dietary: ['Low Sugar'], stars: 4.0, tags: [] },
-            { id: '12', name: 'Choco Chip Cookies', img: 'Brookies.jpeg', description: 'Classic chocolate chip perfection, crispy edges with a gooey center. "My kids can\'t get enough!"', dietary: [], stars: 5.0, tags: ['Most Popular'] },
-            { id: '13', name: 'Almond Thumbprint Cookies', img: 'AlmondThumbprintCookies.jpeg', description: 'Buttery almond cookies with a sweet jam center, a delightful treat. "So delicate and flavorful!"', dietary: ['Gluten-Free'], stars: 4.5, tags: [] },
-            { id: '14', name: 'Brookies', img: 'Brookies.jpeg', description: 'Brownie + cookie hybrid treat, the best of both worlds! "Addictive, can\'t stop at one!"', dietary: ['Vegan'], stars: 5.0, tags: [] },
-            { id: '15', name: 'Edible Cookie Dough Bites', img: 'ChocolateFudgeBites.jpeg', description: 'Safe-to-eat cookie dough indulgence, perfect for a quick sweet fix. "Love these for a movie night!"', dietary: ['Gluten-Free', 'Low Sugar'], stars: 4.0, tags: ['Chef\'s Pick'] },
-            { id: '16', name: 'Mix Seed Cookies', img: 'OatsAndRaisenCookies.jpeg', description: 'Nutritious seeds in every bite, a healthy and crunchy snack. "Great for a guilt-free snack."', dietary: ['Vegan', 'Low Sugar'], stars: 3.5, tags: [] },
-            { id: '17', name: 'Nankhatai', img: 'Nankhatai.jpeg', description: 'Traditional Indian shortbread cookies, melt-in-your-mouth goodness. "Takes me back to childhood!"', dietary: ['Low Sugar'], stars: 5.0, tags: [] },
-            { id: '18', name: 'Rakhi Special Surprise Laddos', img: 'FinalLogoTheDessertBox.png', description: 'Festive sweet surprise for Raksha Bandhan, a delightful Indian sweet. "Perfect for celebrations!"', dietary: ['Gluten-Free'], stars: 4.0, tags: ['Limited Edition'] },
-            { id: '19', name: 'Chocolate Protein Bars', img: 'ChocolateProteinBar.png', description: 'Energy-boosting nutritious bars, perfect for a healthy snack on the go. "My go-to post-workout treat!"', dietary: ['Vegan', 'Low Sugar'], stars: 4.5, tags: [] },
-            { id: '20', name: 'Healthy Twix Bar', img: 'TwixBar.jpeg', description: 'Guilt-free version of the classic Twix, with a crunchy base and luscious caramel. "Tastes just like the real thing, but better!"', dietary: ['Gluten-Free', 'Low Sugar'], stars: 5.0, tags: [] },
-            { id: '21', name: "Chef's Special Mocha Almond Cake", img: 'MochaDatesJowarCake.jpeg', description: "A signature creation, combining rich mocha, crunchy almonds, and a secret twist. \"Unforgettable! My new obsession.\"", dietary: ['Gluten-Free'], stars: 5.0, tags: ['Chef\'s Pick'] },
-            { id: '22', name: "Artisanal Nankhatai Duo Pack", img: 'Nankhatai.jpeg', description: "Two exquisite variations of our classic Nankhatai, a delightful crunchy experience. \"A traditional delight reinvented!\"", dietary: ['Low Sugar'], stars: 5.0, tags: ['Chef\'s Pick'] },
+            // Chocolate Indulgences
+            { id: '1', name: 'Coffee Cake', img: 'https://via.placeholder.com/320x200?text=Coffee+Cake', description: 'Rich coffee-infused chocolate delight, a perfect balance of bitter and sweet. "Absolutely divine! The coffee kick is just right."', dietary: ['Vegan', 'Low Sugar'], stars: 4.0, tags: ['Chef\'s Pick'], category: 'chocolate' },
+            { id: '2', name: 'Almond Chocolate Mocha Cake', img: 'https://via.placeholder.com/320x200?text=Mocha+Cake', description: 'Decadent mocha layers with almond crunch, a harmonious blend of coffee, chocolate, and nutty goodness. "My absolute favorite! So rich!"', dietary: ['Gluten-Free'], stars: 5.0, tags: [], category: 'chocolate' },
+            { id: '3', name: 'Ragi Chocolate Cake', img: 'https://via.placeholder.com/320x200?text=Ragi+Cake', description: 'Healthy indulgence with finger millet, surprisingly delicious and wholesome. "Never thought healthy could taste this good!"', dietary: ['Gluten-Free', 'Low Sugar'], stars: 4.5, tags: [], category: 'chocolate' },
+            { id: '4', name: 'Wholewheat Blueberry Crumble', img: 'https://via.placeholder.com/320x200?text=Blueberry+Crumble', description: 'With blueberry chia jam topping, a rustic and flavorful dessert. "Fresh and fruity, a must-try!"', dietary: ['Low Sugar'], stars: 4.0, tags: ['New Item'], category: 'chocolate' },
+            { id: '5', name: 'Chocolate Coconut Bounty Cake', img: 'https://via.placeholder.com/320x200?text=Coconut+Bounty', description: 'Tropical coconut-chocolate fusion, tastes like a dream vacation. "So rich and satisfying!"', dietary: ['Vegan'], stars: 5.0, tags: [], category: 'chocolate' },
+            { id: '6', name: 'Chocolate Mousse Cake', img: 'https://via.placeholder.com/320x200?text=Mousse+Cake', description: 'Light, airy chocolate perfection that melts in your mouth. "A heavenly cloud of chocolate!"', dietary: ['Gluten-Free'], stars: 4.5, tags: [], category: 'chocolate' },
+            { id: '7', name: 'Red Velvet Cupcakes', img: 'https://via.placeholder.com/320x200?text=Red+Velvet', description: 'Classic red velvet with tangy cream cheese frosting, a timeless favorite. "Simply irresistible!"', dietary: [], stars: 5.0, tags: ['Most Popular'], category: 'chocolate' },
+            { id: '8', name: 'Chocolate Fudge Brownies', img: 'https://via.placeholder.com/320x200?text=Brownies', description: 'Dense, rich, and intensely chocolatey with your choice of walnut or almond topping. "Best brownies ever!"', dietary: ['Vegan', 'Low Sugar'], stars: 4.5, tags: [], category: 'chocolate' },
+            { id: '9', name: 'Ragi Chocolate Tart', img: 'https://via.placeholder.com/320x200?text=Ragi+Tart', description: 'Healthy tart with rich chocolate filling, a guilt-free pleasure. "Surprisingly delicious for being healthy."', dietary: ['Gluten-Free', 'Low Sugar'], stars: 3.5, tags: [], category: 'chocolate' },
+            { id: '10', name: 'Lava Cake', img: 'https://via.placeholder.com/320x200?text=Lava+Cake', description: 'Warm molten chocolate center, an explosion of flavor in every spoonful. "Pure bliss for chocolate lovers!"', dietary: ['Gluten-Free'], stars: 5.0, tags: [], category: 'chocolate' },
+            
+            // Cookies
+            { id: '11', name: 'Oats Raisins Cookies', img: 'https://via.placeholder.com/320x200?text=Oats+Cookies', description: 'Chewy oatmeal cookies with plump raisins, a comforting classic. "Perfectly soft and wholesome."', dietary: ['Low Sugar'], stars: 4.0, tags: [], category: 'cookies' },
+            { id: '12', name: 'Choco Chip Cookies', img: 'https://via.placeholder.com/320x200?text=Choco+Chip', description: 'Classic chocolate chip perfection, crispy edges with a gooey center. "My kids can\'t get enough!"', dietary: [], stars: 5.0, tags: ['Most Popular'], category: 'cookies' },
+            { id: '13', name: 'Almond Thumbprint Cookies', img: 'https://via.placeholder.com/320x200?text=Thumbprint', description: 'Buttery almond cookies with a sweet jam center, a delightful treat. "So delicate and flavorful!"', dietary: ['Gluten-Free'], stars: 4.5, tags: [], category: 'cookies' },
+            { id: '14', name: 'Brookies', img: 'https://via.placeholder.com/320x200?text=Brookies', description: 'Brownie + cookie hybrid treat, the best of both worlds! "Addictive, can\'t stop at one!"', dietary: ['Vegan'], stars: 5.0, tags: [], category: 'cookies' },
+            { id: '15', name: 'Edible Cookie Dough Bites', img: 'https://via.placeholder.com/320x200?text=Cookie+Dough', description: 'Safe-to-eat cookie dough indulgence, perfect for a quick sweet fix. "Love these for a movie night!"', dietary: ['Gluten-Free', 'Low Sugar'], stars: 4.0, tags: ['Chef\'s Pick'], category: 'cookies' },
+            { id: '16', name: 'Mix Seed Cookies', img: 'https://via.placeholder.com/320x200?text=Mix+Seed', description: 'Nutritious seeds in every bite, a healthy and crunchy snack. "Great for a guilt-free snack."', dietary: ['Vegan', 'Low Sugar'], stars: 3.5, tags: [], category: 'cookies' },
+            { id: '17', name: 'Nankhatai', img: 'https://via.placeholder.com/320x200?text=Nankhatai', description: 'Traditional Indian shortbread cookies, melt-in-your-mouth goodness. "Takes me back to childhood!"', dietary: ['Low Sugar'], stars: 5.0, tags: [], category: 'cookies' },
+            
+            // Bars
+            { id: '18', name: 'Rakhi Special Surprise Laddos', img: 'https://via.placeholder.com/320x200?text=Laddos', description: 'Festive sweet surprise for Raksha Bandhan, a delightful Indian sweet. "Perfect for celebrations!"', dietary: ['Gluten-Free'], stars: 4.0, tags: ['Limited Edition'], category: 'bars' },
+            { id: '19', name: 'Chocolate Protein Bars', img: 'https://via.placeholder.com/320x200?text=Protein+Bars', description: 'Energy-boosting nutritious bars, perfect for a healthy snack on the go. "My go-to post-workout treat!"', dietary: ['Vegan', 'Low Sugar'], stars: 4.5, tags: [], category: 'bars' },
+            { id: '20', name: 'Healthy Twix Bar', img: 'https://via.placeholder.com/320x200?text=Twix+Bar', description: 'Guilt-free version of the classic Twix, with a crunchy base and luscious caramel. "Tastes just like the real thing, but better!"', dietary: ['Gluten-Free', 'Low Sugar'], stars: 5.0, tags: [], category: 'bars' },
+            
+            // Chef's Picks
+            { id: '21', name: "Chef's Special Mocha Almond Cake", img: 'https://via.placeholder.com/320x200?text=Mocha+Almond', description: "A signature creation, combining rich mocha, crunchy almonds, and a secret twist. \"Unforgettable! My new obsession.\"", dietary: ['Gluten-Free'], stars: 5.0, tags: ['Chef\'s Pick'], category: 'chefs' },
+            { id: '22', name: "Artisanal Nankhatai Duo Pack", img: 'https://via.placeholder.com/320x200?text=Nankhatai+Duo', description: "Two exquisite variations of our classic Nankhatai, a delightful crunchy experience. \"A traditional delight reinvented!\"", dietary: ['Low Sugar'], stars: 5.0, tags: ['Chef\'s Pick'], category: 'chefs' }
         ];
 
+        // Cart functionality
+        let cart = [];
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const menu = document.querySelector('nav');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            const isExpanded = menu.classList.contains('active');
-            menu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = isExpanded ? 
-                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>'; /* Swapped icons for better UX */
-            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled-header');
-            } else {
-                header.classList.remove('scrolled-header');
-            }
-        });
-
-        // Favorite button functionality
-        document.querySelectorAll('.favorite-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default link behavior if applicable
-                e.stopPropagation(); // Prevent quick view modal from opening if clicked within item
-                btn.classList.toggle('active');
-                const heartIcon = btn.querySelector('i');
-                if (btn.classList.contains('active')) {
-                    heartIcon.classList.remove('far');
-                    heartIcon.classList.add('fas');
-                } else {
-                    heartIcon.classList.remove('fas');
-                    heartIcon.classList.add('far');
-                }
-                btn.setAttribute('aria-pressed', btn.classList.contains('active'));
-                showToastMessage(btn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!', 'success');
-            });
-        });
-
-        // Cart functionality and Firebase Integration
+        // DOM Elements
         const cartIcon = document.getElementById('cart-icon');
         const cartModal = document.getElementById('cart-modal');
         const closeCart = document.getElementById('close-cart');
@@ -2432,160 +1684,247 @@
         const cartItemsContainer = document.getElementById('cart-items');
         const checkoutBtn = document.getElementById('checkout-btn');
         const toast = document.getElementById('toast');
-        const cartLoadingSpinner = document.getElementById('cart-loading-spinner');
-        const userIdDisplay = document.getElementById('user-id-display');
-        
-        let cart = []; // Local cart array, kept in sync with Firestore
-        let app;
-        let db;
-        let auth;
-        let userId; // Will be set after Firebase auth
-        let cartDocRef; // Reference to the Firestore document holding the cart
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const menu = document.querySelector('nav');
+        const searchInput = document.getElementById('search-input');
+        const quickViewModal = document.getElementById('quick-view-modal');
+        const quickViewCloseBtn = document.getElementById('quick-view-close');
 
-        // Function to initialize Firebase and authenticate
-        async function initFirebaseAndAuth() {
-            try {
-                // Ensure __firebase_config and __app_id are available from the environment
-                const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-                const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            generateMenuItems();
+            setupEventListeners();
+            updateCartCount();
+        });
 
-                if (Object.keys(firebaseConfig).length === 0) {
-                    console.error("Firebase config not found. Cart persistence will not work.");
-                    showToastMessage("Error: Firebase not configured. Cart won't save.", 'error');
-                    return;
-                }
+        // Generate menu items from data
+        function generateMenuItems() {
+            const categories = {
+                chocolate: document.querySelector('#chocolate-indulgences .menu-items'),
+                cookies: document.querySelector('#best-selling-cookies .menu-items'),
+                bars: document.querySelector('#best-selling-bars .menu-items'),
+                chefs: document.querySelector('#chefs-picks .menu-items')
+            };
 
-                // Initialize Firebase app
-                app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-
-                // Sign in with custom token if available, otherwise anonymously
-                if (typeof __initial_auth_token !== 'undefined') {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-
-                // Listen for auth state changes
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        userId = user.uid;
-                        console.log("Authenticated with Firebase. User ID:", userId);
-                        userIdDisplay.textContent = `User ID: ${userId}`; // Update UI
-                    } else {
-                        // Fallback for unauthenticated or anonymous, though signInAnonymously should give a uid
-                        userId = crypto.randomUUID(); // Generate a random ID if no user is truly signed in
-                        console.log("Signed in anonymously. User ID:", userId);
-                        userIdDisplay.textContent = `User ID: ${userId} (Anonymous)`;
-                    }
-                    setupCartListener(); // Setup listener once authenticated or assigned anonymous ID
-                });
-
-            } catch (error) {
-                console.error("Error initializing Firebase or authenticating:", error);
-                showToastMessage('Error connecting to cart service. Please try again later.', 'error');
-            }
-        }
-
-        // Setup real-time Firestore listener for the user's cart
-        function setupCartListener() {
-            if (!db || !userId) {
-                console.warn("Firestore not initialized or user ID not available for cart listener.");
-                return;
-            }
-            // Firestore path for user's private cart data
-            const cartCollectionPath = `artifacts/${__app_id}/users/${userId}/cart`;
-            cartDocRef = doc(db, cartCollectionPath, 'items'); // Document to store the array of items
-
-            cartLoadingSpinner.classList.add('active'); // Show spinner while loading cart
-
-            onSnapshot(cartDocRef, (docSnap) => {
-                cartLoadingSpinner.classList.remove('active'); // Hide spinner after data received
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    cart = data.items || []; // Ensure 'items' field exists, default to empty array
-                    console.log("Cart data fetched from Firestore:", cart);
-                } else {
-                    cart = []; // Cart document doesn't exist, so cart is empty
-                    console.log("No cart data found in Firestore, initializing empty local cart.");
-                }
-                renderCartUI(); // Always update UI after fetching/updating cart from Firestore
-                updateCartCountUI(); // Update header cart count
-            }, (error) => {
-                console.error("Error getting real-time cart updates:", error);
-                showToastMessage('Error syncing cart. Please refresh.', 'error');
-                cartLoadingSpinner.classList.remove('active'); // Hide spinner on error
+            menuItemsData.forEach((item, index) => {
+                const menuItem = createMenuItemElement(item, index);
+                categories[item.category].appendChild(menuItem);
             });
         }
 
-        // Open cart modal
-        cartIcon.addEventListener('click', (e) => {
-            e.preventDefault();
-            cartModal.classList.add('active');
-            document.body.classList.add('no-scroll'); // Disable body scroll
-            cartModal.setAttribute('aria-hidden', 'false');
-            // Cart UI will be rendered automatically by onSnapshot
-        });
-        
-        // Close cart modal
-        closeCart.addEventListener('click', () => {
-            cartModal.classList.remove('active');
-            document.body.classList.remove('no-scroll'); // Enable body scroll
-            cartModal.setAttribute('aria-hidden', 'true');
-        });
-        // Close modal if clicked outside content
-        cartModal.addEventListener('click', (e) => {
-            if (e.target === cartModal) {
+        // Create DOM element for a menu item
+        function createMenuItemElement(item, index) {
+            const delay = 100 * (index + 1);
+            const tagsHTML = item.tags.map(tag => `<span class="item-tag">${tag}</span>`).join('');
+            const dietaryTagsHTML = item.dietary.map(tag => `<span class="dietary-tag">${tag}</span>`).join('');
+
+            // Star rating HTML
+            let starsHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(item.stars)) {
+                    starsHTML += '<i class="fas fa-star"></i>';
+                } else if (i === Math.ceil(item.stars) && !Number.isInteger(item.stars)) {
+                    starsHTML += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    starsHTML += '<i class="far fa-star"></i>';
+                }
+            }
+            starsHTML += ` (${item.stars})`;
+
+            const itemElement = document.createElement('div');
+            itemElement.className = 'menu-item';
+            itemElement.dataset.id = item.id;
+            itemElement.setAttribute('data-aos', 'fade-up');
+            itemElement.setAttribute('data-aos-delay', delay);
+            itemElement.innerHTML = `
+                ${tagsHTML}
+                <div class="item-image">
+                    <img src="${item.img}" alt="${item.name}" loading="lazy">
+                </div>
+                <div class="item-details">
+                    <h3 class="item-name"><a href="#" class="item-name-link quick-view-trigger">${item.name}</a></h3>
+                    <div class="star-rating">
+                        ${starsHTML}
+                    </div>
+                    <p class="item-description">${item.description}</p>
+                    <div class="dietary-tags">
+                        ${dietaryTagsHTML}
+                    </div>
+                    <div class="item-actions">
+                        <div class="add-to-cart-group">
+                            <div class="quantity-input-group">
+                                <button class="quantity-minus" data-id="${item.id}">-</button>
+                                <span class="item-quantity-display">1</span>
+                                <button class="quantity-plus" data-id="${item.id}">+</button>
+                            </div>
+                            <button class="add-to-cart" data-id="${item.id}" data-name="${item.name}">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                        <button class="favorite-btn" aria-label="Add to favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            return itemElement;
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                const isExpanded = menu.classList.contains('active');
+                menu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = isExpanded ? 
+                    '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled-header');
+                } else {
+                    header.classList.remove('scrolled-header');
+                }
+            });
+
+            // Favorite button functionality
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.favorite-btn')) {
+                    const btn = e.target.closest('.favorite-btn');
+                    btn.classList.toggle('active');
+                    const heartIcon = btn.querySelector('i');
+                    if (btn.classList.contains('active')) {
+                        heartIcon.classList.remove('far');
+                        heartIcon.classList.add('fas');
+                    } else {
+                        heartIcon.classList.remove('fas');
+                        heartIcon.classList.add('far');
+                    }
+                    btn.setAttribute('aria-pressed', btn.classList.contains('active'));
+                    showToastMessage(btn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!', 'success');
+                }
+            });
+
+            // Cart functionality
+            cartIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                cartModal.classList.add('active');
+                document.body.classList.add('no-scroll');
+                renderCart();
+            });
+            
+            closeCart.addEventListener('click', () => {
                 cartModal.classList.remove('active');
                 document.body.classList.remove('no-scroll');
-                cartModal.setAttribute('aria-hidden', 'true');
-            }
-        });
-
-        // Add to cart logic (updated to handle quantity inputs and Firestore persistence)
-        document.querySelectorAll('.menu-item .add-to-cart').forEach(btn => {
-            btn.addEventListener('click', async (e) => {
-                e.preventDefault();
-                e.stopPropagation(); // Prevent quick view modal from opening
-                const itemId = btn.getAttribute('data-id');
-                const itemQuantityDisplay = btn.closest('.item-actions').querySelector('.item-quantity-display');
-                const quantity = parseInt(itemQuantityDisplay.textContent);
-                
-                await addItemToCart(itemId, quantity);
-                itemQuantityDisplay.textContent = 1; // Reset quantity display after adding
             });
-        });
-
-        // Quantity controls on main menu items
-        document.querySelectorAll('.menu-item .quantity-minus').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation(); // Prevent quick view modal from opening
-                const quantityDisplay = btn.nextElementSibling;
-                let currentQuantity = parseInt(quantityDisplay.textContent);
-                if (currentQuantity > 1) {
-                    quantityDisplay.textContent = currentQuantity - 1;
+            
+            cartModal.addEventListener('click', (e) => {
+                if (e.target === cartModal) {
+                    cartModal.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
                 }
             });
-        });
-        document.querySelectorAll('.menu-item .quantity-plus').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation(); // Prevent quick view modal from opening
-                const quantityDisplay = btn.previousElementSibling;
-                let currentQuantity = parseInt(quantityDisplay.textContent);
-                quantityDisplay.textContent = currentQuantity + 1;
-            });
-        });
-        
-        // Adds item to local cart and then persists to Firestore
-        async function addItemToCart(id, quantity) {
-            if (!cartDocRef) {
-                showToastMessage("Cart service not ready. Please wait.", 'error');
-                return;
-            }
 
+            // Add to cart functionality
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.add-to-cart')) {
+                    const btn = e.target.closest('.add-to-cart');
+                    const itemId = btn.getAttribute('data-id');
+                    const itemQuantityDisplay = btn.closest('.item-actions').querySelector('.item-quantity-display');
+                    const quantity = parseInt(itemQuantityDisplay.textContent);
+                    
+                    addItemToCart(itemId, quantity);
+                    itemQuantityDisplay.textContent = 1; // Reset quantity display after adding
+                }
+            });
+
+            // Quantity controls
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.quantity-minus')) {
+                    const btn = e.target.closest('.quantity-minus');
+                    const quantityDisplay = btn.nextElementSibling;
+                    let currentQuantity = parseInt(quantityDisplay.textContent);
+                    if (currentQuantity > 1) {
+                        quantityDisplay.textContent = currentQuantity - 1;
+                    }
+                }
+                
+                if (e.target.closest('.quantity-plus')) {
+                    const btn = e.target.closest('.quantity-plus');
+                    const quantityDisplay = btn.previousElementSibling;
+                    let currentQuantity = parseInt(quantityDisplay.textContent);
+                    quantityDisplay.textContent = currentQuantity + 1;
+                }
+            });
+
+            // Quick View functionality
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.item-name-link')) {
+                    e.preventDefault();
+                    const link = e.target.closest('.item-name-link');
+                    const itemId = link.closest('.menu-item').dataset.id;
+                    const itemData = menuItemsData.find(item => item.id === itemId);
+                    
+                    if (itemData) {
+                        openQuickView(itemData);
+                    }
+                }
+            });
+            
+            quickViewCloseBtn.addEventListener('click', () => {
+                quickViewModal.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+            
+            quickViewModal.addEventListener('click', (e) => {
+                if (e.target === quickViewModal) {
+                    quickViewModal.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+
+            // Search functionality
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const menuItems = document.querySelectorAll('.menu-item');
+                
+                menuItems.forEach(item => {
+                    const itemName = item.querySelector('.item-name a').textContent.toLowerCase();
+                    const itemDescription = item.querySelector('.item-description').textContent.toLowerCase();
+                    
+                    if (itemName.includes(searchTerm) || itemDescription.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        // Re-apply AOS animation when shown
+                        item.classList.remove('aos-animate');
+                        void item.offsetWidth;
+                        item.classList.add('aos-animate');
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // Checkout button
+            checkoutBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    showToastMessage('Your cart is empty!', 'error');
+                    return;
+                }
+                showToastMessage('Proceeding to checkout!', 'success');
+                cart = [];
+                updateCartCount();
+                cartModal.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+                renderCart();
+            });
+        }
+
+        // Add item to cart
+        function addItemToCart(id, quantity) {
             const itemData = menuItemsData.find(item => item.id === id);
             if (!itemData) {
                 showToastMessage("Error: Item not found.", 'error');
@@ -2606,56 +1945,23 @@
             }
             
             showToastMessage(`'${itemData.name}' added to cart!`, 'success');
+            updateCartCount();
+        }
 
+        // Update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Pulse animation
             cartCount.classList.add('pulse-animation');
             setTimeout(() => {
                 cartCount.classList.remove('pulse-animation');
-            }, 400); 
-
-            await saveCartToFirestore(); // Persist the updated cart
+            }, 400);
         }
 
-        // Saves the current local cart array to Firestore
-        async function saveCartToFirestore() {
-            if (!cartDocRef) {
-                console.error("Cart document reference not available. Cannot save to Firestore.");
-                return;
-            }
-            try {
-                // Exponential backoff for retries
-                for (let i = 0; i < 3; i++) { // Max 3 retries
-                    try {
-                        await setDoc(cartDocRef, { items: cart });
-                        console.log("Cart saved to Firestore.");
-                        return; // Success, exit loop
-                    } catch (error) {
-                        if (error.code === 'unavailable' || error.code === 'resource-exhausted') {
-                            const delay = Math.pow(2, i) * 1000; // 1s, 2s, 4s
-                            console.warn(`Firestore write failed, retrying in ${delay / 1000}s...`);
-                            await new Promise(res => setTimeout(res, delay));
-                        } else {
-                            throw error; // Re-throw if not a retriable error
-                        }
-                    }
-                }
-                throw new Error("Failed to save cart to Firestore after multiple retries.");
-            } catch (error) {
-                console.error("Error saving cart to Firestore:", error);
-                showToastMessage('Error saving cart. Please try again.', 'error');
-            }
-        }
-
-        // Show toast notification
-        function showToastMessage(message, type = 'success') {
-            toast.querySelector('span').textContent = message;
-            toast.className = `toast show ${type}`; // Add type class
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-        
-        // Update cart UI based on the `cart` array (now called by onSnapshot)
-        function renderCartUI() {
+        // Render cart items
+        function renderCart() {
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = `
                     <div class="empty-cart">
@@ -2690,41 +1996,31 @@
                 cartItemsContainer.appendChild(cartItem);
             });
             
-            // Re-attach event listeners for dynamically added buttons in cart
+            // Add event listeners for cart controls
             cartItemsContainer.querySelectorAll('.quantity-btn.minus').forEach(btn => {
-                btn.addEventListener('click', async () => {
+                btn.addEventListener('click', () => {
                     const id = btn.getAttribute('data-id');
-                    await updateQuantityInCart(id, -1);
+                    updateCartItemQuantity(id, -1);
                 });
             });
             
             cartItemsContainer.querySelectorAll('.quantity-btn.plus').forEach(btn => {
-                btn.addEventListener('click', async () => {
+                btn.addEventListener('click', () => {
                     const id = btn.getAttribute('data-id');
-                    await updateQuantityInCart(id, 1);
+                    updateCartItemQuantity(id, 1);
                 });
             });
             
             cartItemsContainer.querySelectorAll('.remove-item').forEach(btn => {
-                btn.addEventListener('click', async () => {
+                btn.addEventListener('click', () => {
                     const id = btn.getAttribute('data-id');
-                    await removeItemFromCart(id);
+                    removeCartItem(id);
                 });
             });
         }
 
-        // Updates header cart count UI only
-        function updateCartCountUI() {
-            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = totalItems;
-        }
-        
-        // Update item quantity in cart and persist to Firestore
-        async function updateQuantityInCart(id, change) {
-            if (!cartDocRef) {
-                showToastMessage("Cart service not ready. Please wait.", 'error');
-                return;
-            }
+        // Update cart item quantity
+        function updateCartItemQuantity(id, change) {
             const item = cart.find(item => item.id === id);
             if (item) {
                 item.quantity += change;
@@ -2733,287 +2029,87 @@
                     cart = cart.filter(item => item.id !== id);
                 }
                 
-                await saveCartToFirestore(); // Persist the updated cart
+                updateCartCount();
+                renderCart();
             }
         }
-        
-        // Remove item from cart and persist to Firestore
-        async function removeItemFromCart(id) {
-            if (!cartDocRef) {
-                showToastMessage("Cart service not ready. Please wait.", 'error');
-                return;
-            }
+
+        // Remove cart item
+        function removeCartItem(id) {
             cart = cart.filter(item => item.id !== id);
-            await saveCartToFirestore(); // Persist the updated cart
+            showToastMessage('Item removed from cart!', 'success');
+            updateCartCount();
+            renderCart();
         }
-        
-        // Checkout button
-        checkoutBtn.addEventListener('click', async () => {
-            if (cart.length === 0) {
-                showToastMessage('Your cart is empty!', 'error');
-                return;
-            }
-            showToastMessage('Proceeding to checkout!', 'success');
-            cart = []; // Clear local cart
-            await saveCartToFirestore(); // Clear cart in Firestore
-            cartModal.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-            cartModal.setAttribute('aria-hidden', 'true');
-        });
 
-        // Quick View Modal Functionality
-        const quickViewModal = document.getElementById('quick-view-modal');
-        const quickViewCloseBtn = document.getElementById('quick-view-close');
-        const quickViewImg = document.getElementById('quick-view-img');
-        const quickViewItemName = document.getElementById('quick-view-item-name');
-        const quickViewStars = document.getElementById('quick-view-stars');
-        const quickViewDescription = document.getElementById('quick-view-description');
-        const quickViewDietaryTags = document.getElementById('quick-view-dietary-tags');
-        const quickViewQuantityMinus = document.getElementById('quick-view-quantity-minus');
-        const quickViewQuantityDisplay = document.getElementById('quick-view-quantity-display');
-        const quickViewQuantityPlus = document.getElementById('quick-view-quantity-plus');
-        const quickViewAddToCartBtn = document.getElementById('quick-view-add-to-cart');
-        const quickViewFavoriteBtn = document.getElementById('quick-view-favorite-btn');
-        const reviewStarsInput = document.getElementById('review-stars');
-        const reviewTextInput = document.getElementById('review-text');
-        const submitReviewBtn = document.getElementById('submit-review-btn');
-
-        let currentQuickViewItemId = null; // To store the ID of the item currently in quick view
-        let currentReviewRating = 0; // To store the selected rating for review
-
-        // Open Quick View Modal
-        document.querySelectorAll('.menu-item .item-name-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default link navigation
-                e.stopPropagation(); // Prevent parent menu-item click if applicable
-                const itemId = link.closest('.menu-item').getAttribute('data-id');
-                const itemData = menuItemsData.find(item => item.id === itemId);
-
-                if (itemData) {
-                    quickViewImg.src = itemData.img;
-                    quickViewImg.alt = itemData.name;
-                    quickViewItemName.textContent = itemData.name;
-                    quickViewDescription.textContent = itemData.description;
-                    quickViewQuantityDisplay.textContent = '1'; // Reset quantity for quick view
-
-                    // Render star rating
-                    quickViewStars.innerHTML = '';
-                    for (let i = 1; i <= 5; i++) {
-                        const starClass = i <= Math.floor(itemData.stars) ? 'fas fa-star' : 'far fa-star';
-                        quickViewStars.innerHTML += `<i class="${starClass}"></i>`;
-                    }
-                    if (itemData.stars % 1 !== 0 && itemData.stars % 1 >= 0.5) { // Half star
-                         quickViewStars.innerHTML += `<i class="fas fa-star-half-alt"></i>`;
-                    }
-                    quickViewStars.innerHTML += ` (${itemData.stars})`;
-
-
-                    // Render dietary tags
-                    quickViewDietaryTags.innerHTML = '';
-                    itemData.dietary.forEach(tag => {
-                        const span = document.createElement('span');
-                        span.className = 'dietary-tag';
-                        span.textContent = tag;
-                        quickViewDietaryTags.appendChild(span);
-                    });
-
-                    // Set data-id for add to cart button
-                    quickViewAddToCartBtn.setAttribute('data-id', itemData.id);
-                    quickViewAddToCartBtn.setAttribute('data-name', itemData.name);
-
-                    // Set favorite button state
-                    const existingFavorite = document.querySelector(`.menu-item[data-id="${itemData.id}"] .favorite-btn`);
-                    if (existingFavorite && existingFavorite.classList.contains('active')) {
-                        quickViewFavoriteBtn.classList.add('active');
-                        quickViewFavoriteBtn.querySelector('i').className = 'fas fa-heart';
-                    } else {
-                        quickViewFavoriteBtn.classList.remove('active');
-                        quickViewFavoriteBtn.querySelector('i').className = 'far fa-heart';
-                    }
-                    quickViewFavoriteBtn.setAttribute('data-id', itemData.id); // Set ID for favorite button
-
-                    currentQuickViewItemId = itemData.id; // Store for quantity updates
-
-                    // Reset review section
-                    currentReviewRating = 0;
-                    reviewTextInput.value = '';
-                    updateReviewStarsUI(0);
-
-                    quickViewModal.classList.add('active');
-                    document.body.classList.add('no-scroll'); // Disable body scroll
-                    quickViewModal.setAttribute('aria-hidden', 'false');
-                }
-            });
-        });
-
-        // Close Quick View Modal
-        quickViewCloseBtn.addEventListener('click', () => {
-            quickViewModal.classList.remove('active');
-            document.body.classList.remove('no-scroll');
-            quickViewModal.setAttribute('aria-hidden', 'true');
-        });
-        // Close modal if clicked outside content
-        quickViewModal.addEventListener('click', (e) => {
-            if (e.target === quickViewModal) {
-                quickViewModal.classList.remove('active');
-                document.body.classList.remove('no-scroll');
-                quickViewModal.setAttribute('aria-hidden', 'true');
-            }
-        });
-
-        // Quantity controls in Quick View Modal
-        quickViewQuantityMinus.addEventListener('click', () => {
-            let currentQuantity = parseInt(quickViewQuantityDisplay.textContent);
-            if (currentQuantity > 1) {
-                quickViewQuantityDisplay.textContent = currentQuantity - 1;
-            }
-        });
-        quickViewQuantityPlus.addEventListener('click', () => {
-            let currentQuantity = parseInt(quickViewQuantityDisplay.textContent);
-            quickViewQuantityDisplay.textContent = currentQuantity + 1;
-        });
-
-        // Add to Cart from Quick View Modal
-        quickViewAddToCartBtn.addEventListener('click', async () => {
-            const id = quickViewAddToCartBtn.getAttribute('data-id');
-            const quantity = parseInt(quickViewQuantityDisplay.textContent);
-            await addItemToCart(id, quantity);
-            quickViewModal.classList.remove('active'); // Close modal after adding
-            document.body.classList.remove('no-scroll');
-            quickViewModal.setAttribute('aria-hidden', 'true');
-        });
-
-        // Favorite button in Quick View Modal
-        quickViewFavoriteBtn.addEventListener('click', () => {
-            const id = quickViewFavoriteBtn.getAttribute('data-id');
-            const mainMenuItemFavoriteBtn = document.querySelector(`.menu-item[data-id="${id}"] .favorite-btn`);
+        // Open quick view modal
+        function openQuickView(itemData) {
+            // Set item data in modal
+            document.getElementById('quick-view-img').src = itemData.img;
+            document.getElementById('quick-view-img').alt = itemData.name;
+            document.getElementById('quick-view-item-name').textContent = itemData.name;
+            document.getElementById('quick-view-description').textContent = itemData.description;
+            document.getElementById('quick-view-quantity-display').textContent = '1';
             
-            // Toggle state in quick view
-            quickViewFavoriteBtn.classList.toggle('active');
-            const heartIcon = quickViewFavoriteBtn.querySelector('i');
-            if (quickViewFavoriteBtn.classList.contains('active')) {
-                heartIcon.classList.remove('far');
-                heartIcon.classList.add('fas');
-            } else {
-                heartIcon.classList.remove('fas');
-                heartIcon.classList.add('far');
-            }
-            quickViewFavoriteBtn.setAttribute('aria-pressed', quickViewFavoriteBtn.classList.contains('active'));
-
-            // Sync state with main menu item (if it exists)
-            if (mainMenuItemFavoriteBtn) {
-                mainMenuItemFavoriteBtn.classList.toggle('active');
-                const mainHeartIcon = mainMenuItemFavoriteBtn.querySelector('i');
-                 if (mainMenuItemFavoriteBtn.classList.contains('active')) {
-                    mainHeartIcon.classList.remove('far');
-                    mainHeartIcon.classList.add('fas');
+            // Render star rating
+            const starsContainer = document.getElementById('quick-view-stars');
+            starsContainer.innerHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(itemData.stars)) {
+                    starsContainer.innerHTML += '<i class="fas fa-star"></i>';
+                } else if (i === Math.ceil(itemData.stars) && !Number.isInteger(itemData.stars)) {
+                    starsContainer.innerHTML += '<i class="fas fa-star-half-alt"></i>';
                 } else {
-                    mainHeartIcon.classList.remove('fas');
-                    mainHeartIcon.classList.add('far');
+                    starsContainer.innerHTML += '<i class="far fa-star"></i>';
                 }
-                mainMenuItemFavoriteBtn.setAttribute('aria-pressed', mainMenuItemFavoriteBtn.classList.contains('active'));
             }
-            showToastMessage(quickViewFavoriteBtn.classList.contains('active') ? 'Added to favorites!' : 'Removed from favorites!', 'success');
-        });
-
-        // Review star rating functionality
-        reviewStarsInput.addEventListener('click', (e) => {
-            if (e.target.tagName === 'I') {
-                const value = parseInt(e.target.dataset.value);
-                currentReviewRating = value;
-                updateReviewStarsUI(value);
-            }
-        });
-
-        reviewStarsInput.addEventListener('mouseover', (e) => {
-            if (e.target.tagName === 'I') {
-                const value = parseInt(e.target.dataset.value);
-                updateReviewStarsUI(value, true); // Highlight on hover
-            }
-        });
-
-        reviewStarsInput.addEventListener('mouseout', () => {
-            updateReviewStarsUI(currentReviewRating); // Revert to selected rating on mouseout
-        });
-
-        function updateReviewStarsUI(rating, isHover = false) {
-            const stars = reviewStarsInput.querySelectorAll('i');
-            stars.forEach(star => {
-                const starValue = parseInt(star.dataset.value);
-                if (isHover) {
-                    star.classList.toggle('fas', starValue <= rating);
-                    star.classList.toggle('far', starValue > rating);
-                } else {
-                    star.classList.toggle('fas', starValue <= rating);
-                    star.classList.toggle('far', starValue > rating);
-                    star.classList.toggle('active', starValue <= rating); // Add 'active' class for persistence
-                }
+            starsContainer.innerHTML += ` (${itemData.stars})`;
+            
+            // Render dietary tags
+            const dietaryTagsContainer = document.getElementById('quick-view-dietary-tags');
+            dietaryTagsContainer.innerHTML = '';
+            itemData.dietary.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'dietary-tag';
+                span.textContent = tag;
+                dietaryTagsContainer.appendChild(span);
             });
+            
+            // Set data for add to cart button
+            const addToCartBtn = document.getElementById('quick-view-add-to-cart');
+            addToCartBtn.setAttribute('data-id', itemData.id);
+            addToCartBtn.setAttribute('data-name', itemData.name);
+            
+            // Set favorite button state
+            const favoriteBtn = document.getElementById('quick-view-favorite-btn');
+            const existingFavorite = document.querySelector(`.menu-item[data-id="${itemData.id}"] .favorite-btn`);
+            if (existingFavorite && existingFavorite.classList.contains('active')) {
+                favoriteBtn.classList.add('active');
+                favoriteBtn.querySelector('i').className = 'fas fa-heart';
+            } else {
+                favoriteBtn.classList.remove('active');
+                favoriteBtn.querySelector('i').className = 'far fa-heart';
+            }
+            
+            // Reset review section
+            document.getElementById('review-text').value = '';
+            document.querySelectorAll('#review-stars i').forEach(star => {
+                star.className = 'far fa-star';
+            });
+            
+            // Open modal
+            quickViewModal.classList.add('active');
+            document.body.classList.add('no-scroll');
         }
 
-        // Submit review button functionality (conceptual for now)
-        submitReviewBtn.addEventListener('click', () => {
-            const reviewText = reviewTextInput.value.trim();
-            if (currentQuickViewItemId && currentReviewRating > 0 && reviewText) {
-                console.log(`Submitting review for item ${currentQuickViewItemId}:`);
-                console.log(`Rating: ${currentReviewRating} stars`);
-                console.log(`Review: "${reviewText}"`);
-                // In a real application, you would send this data to a backend (e.g., Firestore)
-                // For example:
-                /*
-                try {
-                    const reviewsCollectionRef = collection(db, `artifacts/${__app_id}/items/${currentQuickViewItemId}/reviews`);
-                    await addDoc(reviewsCollectionRef, {
-                        userId: userId, // Current authenticated user ID
-                        rating: currentReviewRating,
-                        reviewText: reviewText,
-                        timestamp: new Date()
-                    });
-                    showToastMessage('Review submitted successfully!', 'success');
-                    reviewTextInput.value = ''; // Clear form
-                    currentReviewRating = 0;
-                    updateReviewStarsUI(0);
-                } catch (error) {
-                    console.error("Error submitting review:", error);
-                    showToastMessage('Failed to submit review. Please try again.', 'error');
-                }
-                */
-                showToastMessage('Review submitted! (Backend integration needed)', 'success');
-                reviewTextInput.value = ''; // Clear form
-                currentReviewRating = 0;
-                updateReviewStarsUI(0);
-                quickViewModal.classList.remove('active'); // Close modal after submission
-                document.body.classList.remove('no-scroll');
-                quickViewModal.setAttribute('aria-hidden', 'true');
-            } else {
-                showToastMessage('Please select a rating and write your review.', 'error');
-            }
-        });
-
-        // Search functionality
-        const searchInput = document.getElementById('search-input');
-        const menuItems = document.querySelectorAll('.menu-item');
-
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase();
-            menuItems.forEach(item => {
-                const itemName = item.querySelector('.item-name a').textContent.toLowerCase();
-                const itemDescription = item.querySelector('.item-description').textContent.toLowerCase();
-
-                if (itemName.includes(searchTerm) || itemDescription.includes(searchTerm)) {
-                    item.style.display = 'flex'; // Show the item
-                    // Re-apply AOS animation when shown
-                    item.classList.remove('aos-animate');
-                    void item.offsetWidth; // Trigger reflow
-                    item.classList.add('aos-animate');
-                } else {
-                    item.style.display = 'none'; // Hide the item
-                }
-            });
-        });
-        
-        // Initialize Firebase and Auth on window load
-        window.addEventListener('load', initFirebaseAndAuth);
+        // Show toast message
+        function showToastMessage(message, type = 'success') {
+            toast.querySelector('span').textContent = message;
+            toast.className = `toast show ${type}`;
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
     </script>
 </body>
 </html>
