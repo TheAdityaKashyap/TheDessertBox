@@ -858,6 +858,16 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .dark-mode header,
+        .dark-mode footer {
+            background-color: #1e1e1e;
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             body {
@@ -1048,6 +1058,20 @@
             }
         }
     </style>
+
+    <!-- Added meta tags for SEO -->
+    <meta name="description" content="Welcome to The Dessert Box - Premium desserts crafted with love and the finest ingredients.">
+    <meta name="keywords" content="Desserts, Chocolate, Cookies, Bars, Premium Desserts">
+    <meta name="author" content="The Dessert Box">
+
+    <!-- Added Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-XXXXX-Y');
+    </script>
 </head>
 <body>
     <header>
@@ -1062,12 +1086,12 @@
             <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-controls="menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul id="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="index.html" aria-label="Go to Home">Home</a></li>
+                    <li><a href="index.html#about" aria-label="Learn more about us">About</a></li>
+                    <li><a href="menu.html" aria-label="View our menu">Menu</a></li>
+                    <li><a href="index.html#contact" aria-label="Contact us">Contact</a></li>
                     <li>
                         <a href="#" class="cart-icon" id="cart-icon" aria-label="View shopping cart">
                             <i class="fas fa-shopping-cart"></i>
@@ -1614,6 +1638,8 @@
         <span>Item added to cart!</span>
     </div>
 
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -1842,6 +1868,12 @@
         
         // Initialize cart on page load
         updateCart();
+
+        // Dark mode toggle functionality
+        const toggle = document.getElementById('dark-mode-toggle');
+        toggle.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+        });
     </script>
 </body>
 </html>
